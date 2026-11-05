@@ -38,8 +38,8 @@
   .voltar a:hover{color:var(--ink)}
 
   .topo{display:flow-root;margin-top:clamp(28px,5vw,56px)}
-  .topo .capa{float:left;width:300px;margin:0 25px 20px 0}
-  .topo .sobre{margin-top:25px}
+  .topo .capa{float:left;width:300px;margin:0 24px 0 0}
+  .topo .sobre .texto{margin:0 0 1.65em}
   .topo .texto{max-width:none}
   .capa{aspect-ratio:2/3;background:#FFFFFF;border-radius:2px;overflow:hidden;max-width:100%}
   .capa img{display:block;width:100%;height:100%;object-fit:contain;transform:translateX(-4%)}
@@ -184,6 +184,33 @@ function renderObra(){
     </section>`;
 }
 renderObra();
+
+/* Alinha a grade de linhas do texto à borda inferior da capa, para que a primeira
+   linha de largura total fique sempre à distância lateral da capa (24px).
+   Todo espaçamento vertical do texto é múltiplo da altura da linha, então a grade
+   não se desloca com o tamanho do texto; só depende do topo, que é medido aqui. */
+function alinharCapa(){
+  const capa = document.querySelector(".topo .capa");
+  const sobre = document.querySelector(".topo .sobre");
+  if(!capa || !sobre) return;
+  if(!window.matchMedia("(min-width:721px)").matches){ sobre.style.marginTop = ""; return; }
+  sobre.style.marginTop = "0px";
+  const primeiro = sobre.querySelector(".texto");
+  if(!primeiro) return;
+  const L = parseFloat(getComputedStyle(primeiro).lineHeight);
+  const G = parseFloat(getComputedStyle(capa).marginRight);
+  const cb = capa.getBoundingClientRect().bottom;
+  const tt = primeiro.getBoundingClientRect().top;
+  const rg = document.createRange(); rg.selectNodeContents(primeiro);
+  const off = rg.getClientRects()[0].top - tt; /* topo do texto da linha em relação à caixa de linha */
+  let d = (cb + G - off - tt) % L;
+  if(d < 0) d += L;
+  sobre.style.marginTop = d.toFixed(2) + "px";
+}
+let _alinhaT;
+window.addEventListener("resize", ()=>{ clearTimeout(_alinhaT); _alinhaT = setTimeout(alinharCapa, 120); });
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(alinharCapa); }
+alinharCapa();
 </script>
 </body>
 </html>
