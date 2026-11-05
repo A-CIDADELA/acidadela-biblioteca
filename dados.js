@@ -120,3 +120,14 @@ OBRAS.forEach(o => {
 });
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+/* Marcas de cada edição, escritas por extenso para que se entendam sem legenda */
+const MARCAS = {
+  "◆": {rotulo:"Traduzida do original", classe:"m-orig"},
+  "◇": {rotulo:"Traduzida de outra língua", classe:"m-outra"},
+  "✎": {rotulo:"Com notas ou introdução", classe:"m-notas"}
+};
+function marcasHTML(sym){
+  if(!sym) return "";
+  return [...sym].filter(c=>MARCAS[c]).map(c=>`<span class="etiq ${MARCAS[c].classe}">${esc(MARCAS[c].rotulo)}</span>`).join("");
+}

@@ -69,8 +69,11 @@
   .sem-edicao{margin:0;padding-block:18px;border-bottom:1px solid var(--rule);font-size:16px}
 
   .como{display:grid;gap:12px;margin:0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
-  .como li{display:grid;grid-template-columns:28px 1fr;gap:8px}
-  .como .sym{font-family:var(--serif);font-size:19px;color:var(--accent)}
+  .como li{display:block}
+  .etiq{display:inline-block;font-size:12px;font-weight:600;line-height:1.3;padding:3px 9px;border:1px solid var(--accent);color:var(--accent);border-radius:2px;margin:0 6px 6px 0;background:transparent}
+  .etiq.m-orig{background:var(--accent);color:#F4F5F7}
+  .etiq.m-outra{border-style:dashed}
+  .etiq.m-notas{border-color:var(--silver);color:var(--muted)}
   .como strong{color:var(--ink);font-weight:600}
 
   .leitura{font-size:16px;margin:0}
@@ -143,10 +146,10 @@ function renderObra(){
     const linhas = formatos.map(f=>`
       <li>
         <span class="formato">${esc(f.rotulo)}</span>
-        <p class="ed">${ed.sym?`<span class="sym">${esc(ed.sym)}</span>`:""}${esc(ed.ed)}</p>
+        <p class="ed">${marcasHTML(ed.sym)}${esc(ed.ed)}</p>
         <a class="compra" href="${esc(ed.links[f.k])}" target="_blank" rel="noopener sponsored">Ver na Amazon</a>
       </li>`).join("");
-    const semFormato = `<p class="ed-linha"><span class="sym">${esc(ed.sym||"")}</span>${esc(ed.ed)}</p>`;
+    const semFormato = `<p class="ed-linha">${marcasHTML(ed.sym)}${esc(ed.ed)}</p>`;
     const capaEd = ed.img ? `<div class="ed-capa"><img src="${esc(ed.img)}" alt="Capa da edição ${esc(ed.nome||"")} de ${esc(o.t)}" loading="lazy"></div>` : "";
     return `${titulo}<div class="ed-bloco${ed.img?" com-capa":""}">${capaEd}<div class="ed-corpo">${linhas?"":semFormato}${sobreEd}${linhas?`<ul class="edicoes">${linhas}</ul>`:""}</div></div>`;
   };
@@ -177,9 +180,9 @@ function renderObra(){
     <section class="secao">
       <h2>Como ler a indicação</h2>
       <ul class="como">
-        <li><span class="sym">◆</span><span><strong>Do original.</strong> Traduzida diretamente da língua original, com tradutor identificado.</span></li>
-        <li><span class="sym">◇</span><span><strong>De outra língua.</strong> Traduzida de uma língua intermediária. A língua aparece na indicação da edição.</span></li>
-        <li><span class="sym">✎</span><span><strong>Com notas.</strong> Introdução, notas, comentário ou cronologia no próprio livro.</span></li>
+        <li><span class="etiq m-orig">Traduzida do original</span>Traduzida diretamente da língua original, com tradutor identificado.</li>
+        <li><span class="etiq m-outra">Traduzida de outra língua</span>Traduzida de uma língua intermediária. A língua aparece na indicação da edição.</li>
+        <li><span class="etiq m-notas">Com notas ou introdução</span>Introdução, notas, comentário ou cronologia no próprio livro.</li>
       </ul>
     </section>`;
 }
