@@ -3,13 +3,13 @@
 // esc escola ou tema, ed edição indicada (vazio = em conferência),
 // sym símbolos conferidos ("◇ ✎" etc.), links por formato (vazio = não mostrar)
 const ERAS = [
-  {id:"antig", nome:"Antiguidade", cor:"#7a4a1d"},
-  {id:"medio", nome:"Idade Média e mundo islâmico", cor:"#2f4a3a"},
-  {id:"renasc", nome:"Renascimento e política moderna", cor:"#8a3b2e"},
-  {id:"ilum", nome:"Iluminismo e contrato", cor:"#2c4769"},
-  {id:"liberal", nome:"Liberalismo clássico", cor:"#5a3d6b"},
-  {id:"xix", nome:"Século XIX", cor:"#6b5a2a"},
-  {id:"xx", nome:"Século XX e Brasil", cor:"#3d5a5a"},
+  {id:"antig", nome:"Antiguidade", cor:"#4E4236"},
+  {id:"medio", nome:"Idade Média e mundo islâmico", cor:"#3C4A42"},
+  {id:"renasc", nome:"Renascimento e política moderna", cor:"#64393A"},
+  {id:"ilum", nome:"Iluminismo e contrato", cor:"#33455A"},
+  {id:"liberal", nome:"Liberalismo clássico", cor:"#4A3D57"},
+  {id:"xix", nome:"Século XIX", cor:"#5A5034"},
+  {id:"xx", nome:"Século XX e Brasil", cor:"#364B4B"},
 ];
 
 const OBRAS = [

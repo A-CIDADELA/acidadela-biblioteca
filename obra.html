@@ -5,64 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A CIDADELA · Obra</title>
 <meta name="description" content="Edições conferidas desta obra, com a indicação de tradução e de notas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   :root{
-    --bg:#f7f4ee; --fg:#1d1b18; --muted:#6b645a; --card:#ffffff; --line:#e4ded2;
-    --accent:#7a4a1d; --accent-2:#2f4a3a; --soft:#efe9dd;
+    --paper:#EBEDE9; --ink:#171A1D; --muted:#555A60; --rule:#C6CAC4;
+    --accent:#7A2E28; --panel:#E1E4DF;
+    --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#17150f; --fg:#f0ebe0; --muted:#a8a091; --card:#221f18; --line:#3a352a;
-      --accent:#e0a96a; --accent-2:#9cc2a8; --soft:#2a261d;
+      --paper:#0F1114; --ink:#E9E8E3; --muted:#9EA3A9; --rule:#2C3036;
+      --accent:#D9907F; --panel:#171A1E;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#17150f; --fg:#f0ebe0; --muted:#a8a091; --card:#221f18; --line:#3a352a;
-    --accent:#e0a96a; --accent-2:#9cc2a8; --soft:#2a261d;
+    --paper:#0F1114; --ink:#E9E8E3; --muted:#9EA3A9; --rule:#2C3036;
+    --accent:#D9907F; --panel:#171A1E;
   }
+  :root{color-scheme:light}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){color-scheme:dark} }
+  :root[data-theme="dark"]{color-scheme:dark}
+
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
-    background:var(--bg); color:var(--fg);
-    font:16px/1.6 Georgia,"Times New Roman",serif;
+    background:var(--paper); color:var(--ink);
+    font:400 16px/1.6 var(--sans);
     padding-inline:max(16px, env(safe-area-inset-left,0px)) max(16px, env(safe-area-inset-right,0px));
+    -webkit-font-smoothing:antialiased;
   }
-  main{max-width:900px;margin:0 auto;padding-block:24px 64px}
-  .voltar{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px}
-  .voltar a{color:var(--accent-2);font-weight:700}
-  .topo{display:grid;gap:24px;grid-template-columns:minmax(0,220px) minmax(0,1fr);align-items:start;margin-top:20px}
-  .capa{aspect-ratio:2/3;background:var(--soft);border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:100%}
-  .capa img{display:block;width:100%;height:100%;object-fit:contain}
-  .capa.provisoria{
-    display:flex;flex-direction:column;justify-content:space-between;padding:16px;color:#fff;background:var(--c,#555);
-    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+  main{max-width:1000px;margin:0 auto;padding-block:28px 72px}
+
+  .voltar{font-size:15px;margin:0}
+  .voltar a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}
+  .voltar a:hover{color:var(--ink)}
+
+  .topo{display:grid;gap:clamp(24px,5vw,64px);grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:start;margin-top:clamp(28px,5vw,56px)}
+  .capa{aspect-ratio:2/3;background:var(--panel);border-radius:2px;overflow:hidden;max-width:100%}
+  .capa img{display:block;width:100%;height:100%;object-fit:cover}
+  .capa.prov{
+    display:flex;flex-direction:column;justify-content:space-between;padding:22px;color:#F5F4EF;background:var(--c,#444);
   }
-  .capa.provisoria .t{font-weight:700;font-size:18px;line-height:1.2}
-  .capa.provisoria .a{font-size:13px;opacity:.9}
-  h1{font-size:clamp(26px,5vw,36px);margin:0 0 6px;line-height:1.15;text-wrap:balance}
-  .au{color:var(--muted);margin:0 0 4px}
-  .meta{font-size:14px;color:var(--muted);margin:0 0 12px}
-  h2{font-size:clamp(19px,3vw,22px);margin:36px 0 8px;text-wrap:balance}
-  .panel{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
-  .panel p{margin:6px 0}
-  .edicao{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0;display:grid;gap:6px}
-  .edicao .rot{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0}
-  .edicao .ed{margin:0}
-  .edicao .sym{color:var(--accent);font-weight:700}
-  .edicao a.compra{
-    display:inline-block;justify-self:start;margin-top:4px;padding:8px 14px;border-radius:8px;
-    border:1px solid var(--accent);color:var(--accent);text-decoration:none;
-    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;font-weight:700;
+  .capa.prov .e{font-size:13px;opacity:.8}
+  .capa.prov .t{font-family:var(--serif);font-size:34px;line-height:1.02;text-wrap:balance}
+  .capa.prov .a{font-size:14px;opacity:.88;margin-top:8px}
+
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,60px);line-height:1;letter-spacing:-.01em;margin:0 0 14px;text-wrap:balance}
+  .au{font-size:18px;margin:0 0 6px}
+  .meta{font-size:15px;color:var(--muted);margin:0}
+
+  h2{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;margin:0 0 4px}
+  .secao{margin-top:clamp(40px,6vw,64px)}
+
+  /* Edições: linhas com régua, sem caixas */
+  .edicoes{border-top:1px solid var(--rule);margin:0;padding:0;list-style:none}
+  .edicoes li{display:grid;gap:6px 24px;grid-template-columns:minmax(0,150px) minmax(0,1fr) auto;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--rule)}
+  .edicoes .formato{font-size:15px;font-weight:600}
+  .edicoes .ed{margin:0;font-size:16px;line-height:1.5}
+  .edicoes .sym{font-family:var(--serif);font-size:19px;color:var(--accent);margin-right:6px}
+  .compra{font-size:15px;font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;text-decoration-thickness:1.5px;white-space:nowrap}
+  .compra:hover{color:var(--accent)}
+  .vazio{font-size:16px;color:var(--muted);margin:0;padding-block:18px;border-bottom:1px solid var(--rule)}
+  .sem-edicao{margin:0;padding-block:18px;border-bottom:1px solid var(--rule);font-size:16px}
+
+  .como{display:grid;gap:12px;margin:0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+  .como li{display:grid;grid-template-columns:28px 1fr;gap:8px}
+  .como .sym{font-family:var(--serif);font-size:19px;color:var(--accent)}
+  .como strong{color:var(--ink);font-weight:600}
+
+  .leitura{font-size:16px;margin:0}
+
+  footer{border-top:1px solid var(--rule);margin-top:72px;padding-top:20px;color:var(--muted);font-size:14px;display:grid;gap:6px}
+  footer p{margin:0}
+
+  @media (max-width:720px){
+    .topo{grid-template-columns:1fr}
+    .capa{max-width:240px}
+    .edicoes li{grid-template-columns:1fr;gap:4px}
+    .compra{justify-self:start;margin-top:4px}
   }
-  .vazio{color:var(--muted);font-style:italic}
-  .sym{color:var(--accent);font-weight:700}
-  footer{border-top:1px solid var(--line);margin-top:48px;padding-top:16px;color:var(--muted);font-size:14px}
-  @media (max-width:640px){ .topo{grid-template-columns:1fr} .capa{max-width:260px} }
 </style>
 </head>
 <body>
 <main>
-<p class="voltar"><a href="index.html">← Voltar à biblioteca</a></p>
+<p class="voltar"><a href="index.html">Voltar à biblioteca</a></p>
 <div id="conteudo"></div>
 <footer>
   <p>A CIDADELA · Filosofia e estratégia para a vida</p>
@@ -78,7 +109,7 @@ function renderObra(){
   const root = document.getElementById("conteudo");
 
   if(!o){
-    root.innerHTML = `<h1>Obra não encontrada</h1><p>Não há obra com este endereço. Volte à biblioteca e escolha outra.</p>`;
+    root.innerHTML = `<div class="topo"><div><h1>Obra não encontrada</h1><p class="meta">Não há obra neste endereço. Volte à biblioteca e escolha outra.</p></div></div>`;
     return;
   }
   document.title = `${o.t} · A CIDADELA`;
@@ -87,26 +118,25 @@ function renderObra(){
   const situ = o.s==="PD" ? "Domínio público" : `Protegida · domínio a partir de ${o.d}`;
   const capa = o.img
     ? `<div class="capa"><img src="${esc(o.img)}" alt="Capa de ${esc(o.t)}"></div>`
-    : `<div class="capa provisoria" style="--c:${era.cor}"><span>${esc(era.nome)}</span><div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div></div>`;
+    : `<div class="capa prov" style="--c:${era.cor}"><span class="e">${esc(era.nome)}</span><div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div></div>`;
 
-  // Uma seção por formato disponível; cada uma com a edição indicada e o link
   const formatos = FORMATOS.filter(f=>o.links && o.links[f.k]);
   let edicoes;
   if(!o.ed){
-    edicoes = `<p class="vazio">Edição em conferência. Nenhum link de compra é mostrado até a edição ser conferida.</p>`;
+    edicoes = `<p class="vazio">Edição em conferência. Nenhum link de compra aparece até a edição ser conferida.</p>`;
   } else if(!formatos.length){
-    edicoes = `<div class="edicao"><p class="ed"><span class="sym">${esc(o.sym||"")}</span> ${esc(o.ed)}</p></div>`;
+    edicoes = `<p class="sem-edicao">${o.sym?`<span class="sym">${esc(o.sym)}</span>`:""}${esc(o.ed)}</p>`;
   } else {
-    edicoes = formatos.map(f=>`
-      <div class="edicao">
-        <p class="rot">${esc(f.rotulo)}</p>
-        <p class="ed">${o.sym?`<span class="sym">${esc(o.sym)}</span> `:""}${esc(o.ed)}</p>
+    edicoes = `<ul class="edicoes">${formatos.map(f=>`
+      <li>
+        <span class="formato">${esc(f.rotulo)}</span>
+        <p class="ed">${o.sym?`<span class="sym">${esc(o.sym)}</span>`:""}${esc(o.ed)}</p>
         <a class="compra" href="${esc(o.links[f.k])}" target="_blank" rel="noopener sponsored">Ver na Amazon</a>
-      </div>`).join("");
+      </li>`).join("")}</ul>`;
   }
 
   const leitura = o.leitura
-    ? `<div class="panel"><p><strong>Leitura gratuita:</strong> ${esc(o.leitura)}.</p></div>`
+    ? `<div class="secao"><h2>Leitura gratuita</h2><p class="leitura">${esc(o.leitura)}.</p></div>`
     : "";
 
   root.innerHTML = `
@@ -115,18 +145,22 @@ function renderObra(){
       <div>
         <h1>${esc(o.t)}</h1>
         <p class="au">${esc(o.a)}</p>
-        <p class="meta">${esc(o.esc)} · ${situ}</p>
+        <p class="meta">${esc(o.esc)} · ${esc(situ)}</p>
       </div>
     </div>
-    <h2>Edições</h2>
-    ${edicoes}
+    <section class="secao">
+      <h2>Edições</h2>
+      ${edicoes}
+    </section>
     ${leitura}
-    <h2>Como ler a indicação</h2>
-    <div class="panel">
-      <p><span class="sym">◆</span> <strong>Do original</strong>: tradução feita diretamente da língua original, com tradutor identificado.</p>
-      <p><span class="sym">◇</span> <strong>De outra língua</strong>: tradução feita de uma língua intermediária. A língua de origem aparece na indicação da edição.</p>
-      <p><span class="sym">✎</span> <strong>Com notas</strong>: introdução, notas, comentário ou cronologia no próprio livro.</p>
-    </div>`;
+    <section class="secao">
+      <h2>Como ler a indicação</h2>
+      <ul class="como">
+        <li><span class="sym">◆</span><span><strong>Do original.</strong> Traduzida diretamente da língua original, com tradutor identificado.</span></li>
+        <li><span class="sym">◇</span><span><strong>De outra língua.</strong> Traduzida de uma língua intermediária. A língua aparece na indicação da edição.</span></li>
+        <li><span class="sym">✎</span><span><strong>Com notas.</strong> Introdução, notas, comentário ou cronologia no próprio livro.</span></li>
+      </ul>
+    </section>`;
 }
 renderObra();
 </script>

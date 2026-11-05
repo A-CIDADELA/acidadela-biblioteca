@@ -4,101 +4,123 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A CIDADELA · Biblioteca de leitura</title>
-<meta name="description" content="Obras para a formação do pensamento crítico: filosofia, política e sociologia, com indicação de edição conferida.">
+<meta name="description" content="Obras de filosofia, política e sociologia para pensar por conta própria, com a indicação de edição conferida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   :root{
-    --bg:#f7f4ee; --fg:#1d1b18; --muted:#6b645a; --card:#ffffff; --line:#e4ded2;
-    --accent:#7a4a1d; --accent-2:#2f4a3a; --soft:#efe9dd;
+    --paper:#EBEDE9; --ink:#171A1D; --muted:#555A60; --rule:#C6CAC4;
+    --accent:#7A2E28; --panel:#E1E4DF;
+    --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#17150f; --fg:#f0ebe0; --muted:#a8a091; --card:#221f18; --line:#3a352a;
-      --accent:#e0a96a; --accent-2:#9cc2a8; --soft:#2a261d;
+      --paper:#0F1114; --ink:#E9E8E3; --muted:#9EA3A9; --rule:#2C3036;
+      --accent:#D9907F; --panel:#171A1E;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#17150f; --fg:#f0ebe0; --muted:#a8a091; --card:#221f18; --line:#3a352a;
-    --accent:#e0a96a; --accent-2:#9cc2a8; --soft:#2a261d;
+    --paper:#0F1114; --ink:#E9E8E3; --muted:#9EA3A9; --rule:#2C3036;
+    --accent:#D9907F; --panel:#171A1E;
   }
+  :root{color-scheme:light}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){color-scheme:dark} }
+  :root[data-theme="dark"]{color-scheme:dark}
+
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
-    background:var(--bg); color:var(--fg);
-    font:16px/1.6 Georgia,"Times New Roman",serif;
+    background:var(--paper); color:var(--ink);
+    font:400 16px/1.6 var(--sans);
     padding-inline:max(16px, env(safe-area-inset-left,0px)) max(16px, env(safe-area-inset-right,0px));
+    -webkit-font-smoothing:antialiased;
   }
-  main{max-width:1180px;margin:0 auto;padding-block:32px 64px}
-  header{padding-block:28px 12px;border-bottom:1px solid var(--line)}
-  h1{font-size:clamp(28px,5vw,40px);margin:0 0 8px;line-height:1.15;text-wrap:balance}
-  .sub{color:var(--muted);margin:0}
-  h2{font-size:clamp(20px,3.4vw,26px);margin:48px 0 6px;text-wrap:balance}
-  .panel{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:24px 0}
-  .panel h3{margin:0 0 8px;font-size:18px}
-  .panel p{margin:8px 0}
-  .legend{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:12px}
-  .legend div{font-size:15px}
-  .sym{display:inline-block;min-width:1.4em;color:var(--accent);font-weight:700}
-  .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
-  .cover{
-    aspect-ratio:2/3; display:flex; flex-direction:column; justify-content:space-between;
-    padding:16px; color:#fff; background:var(--c,#555);
-    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+  main{max-width:1200px;margin:0 auto;padding-block:clamp(40px,8vw,96px) 72px}
+
+  /* Cabeçalho */
+  .intro{display:grid;gap:20px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;padding-bottom:clamp(32px,5vw,56px);border-bottom:1px solid var(--rule)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7vw,84px);line-height:.98;letter-spacing:-.015em;margin:0;text-wrap:balance}
+  .intro p{margin:0;max-width:44ch;color:var(--muted);font-size:17px}
+
+  /* Como ler */
+  .como{display:grid;gap:14px 32px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));padding-block:28px 8px;font-size:15px;color:var(--muted)}
+  .como p{margin:0}
+  .como strong{color:var(--ink);font-weight:600}
+  .sym{font-family:var(--serif);font-size:19px;color:var(--accent);margin-right:4px}
+
+  /* Épocas */
+  .epoca{margin-top:clamp(48px,7vw,88px)}
+  .epoca header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:28px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.05;margin:0;text-wrap:balance}
+  .contagem{font-size:14px;color:var(--muted);white-space:nowrap}
+
+  .grid{display:grid;gap:40px 24px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+  .obra{display:flex;flex-direction:column;gap:10px;min-width:0}
+  .capa{display:block;aspect-ratio:2/3;background:var(--panel);border-radius:2px;overflow:hidden;position:relative}
+  .capa img{display:block;width:100%;height:100%;object-fit:cover}
+  .capa.prov{
+    display:flex;flex-direction:column;justify-content:space-between;padding:18px;color:#F5F4EF;background:var(--c,#444);
   }
-  .cover .t{font-weight:700;font-size:17px;line-height:1.2;text-wrap:balance}
-  .cover .a{font-size:13px;opacity:.9}
-  .cover .tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
-  .cover-img{display:block;aspect-ratio:2/3;background:var(--soft);overflow:hidden}
-  .cover-img img{display:block;width:100%;height:100%;object-fit:contain;max-width:100%}
-  .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .body h3{margin:0;font-size:17px;line-height:1.25}
-  .body .au{color:var(--muted);font-size:14px;margin:0}
-  .meta{font-size:13px;color:var(--muted);margin:0}
-  .status{font-size:13px;color:var(--accent-2);margin:0}
-  .status.pending{color:var(--muted);font-style:italic}
-  .more{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;margin:0}
-  .more a{color:var(--accent-2);font-weight:700}
-  .btn{
-    display:inline-block;margin-top:auto;padding:8px 14px;border-radius:8px;
-    border:1px solid var(--accent);color:var(--accent);text-decoration:none;
-    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;font-weight:700;text-align:center;
+  .capa.prov .t{font-family:var(--serif);font-size:23px;line-height:1.05;text-wrap:balance}
+  .capa.prov .a{font-size:12px;opacity:.85}
+  .capa.prov .e{font-size:12px;opacity:.75}
+  h3{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.15;margin:6px 0 0;text-wrap:balance}
+  .au{margin:0;font-size:14px;color:var(--muted)}
+  .status{margin:2px 0 0;font-size:14px}
+  .status.pend{color:var(--muted);font-style:italic}
+  .leitura{margin:0;font-size:13px;color:var(--muted)}
+  .ver{align-self:flex-start;margin-top:auto;padding-top:4px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;text-decoration-thickness:1.5px}
+  .ver:hover{color:var(--accent)}
+
+  /* Notas */
+  .notas{margin-top:clamp(64px,9vw,112px);display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-top:1px solid var(--rule);padding-top:32px;font-size:15px;color:var(--muted)}
+  .notas h4{font-family:var(--serif);font-weight:400;font-size:24px;margin:0 0 8px;color:var(--ink)}
+  .notas p{margin:0 0 10px}
+  .notas strong{color:var(--ink);font-weight:600}
+
+  footer{border-top:1px solid var(--rule);margin-top:72px;padding-top:24px;color:var(--muted);font-size:14px;display:grid;gap:6px}
+  footer p{margin:0}
+
+  @media (max-width:640px){
+    .intro{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr 1fr;gap:32px 16px}
+    h3{font-size:18px}
+    .capa.prov .t{font-size:19px}
   }
-  footer{border-top:1px solid var(--line);margin-top:56px;padding-top:20px;color:var(--muted);font-size:14px}
-  footer p{margin:6px 0}
-  @media (max-width:520px){ .grid{grid-template-columns:1fr 1fr;gap:14px} .body{padding:12px} }
 </style>
 </head>
 <body>
 <main>
-<header>
-  <h1>Obras para a formação do pensamento</h1>
-  <p class="sub">A CIDADELA indica leituras de filosofia, política e sociologia para quem quer pensar por conta própria. Cada obra mostra a edição conferida, com a indicação de como ela foi traduzida.</p>
+<header class="intro">
+  <h1>Quarenta e cinco obras para pensar por conta própria</h1>
+  <p>Filosofia, política e sociologia, da Antiguidade ao Brasil. Cada indicação de edição é conferida antes de aparecer aqui, e a página de cada obra mostra como a tradução foi feita.</p>
 </header>
 
-<section class="panel" aria-labelledby="legenda">
-  <h3 id="legenda">Como ler a indicação de edição</h3>
-  <div class="legend">
-    <div><span class="sym">◆</span> <strong>Do original</strong>: tradução feita diretamente da língua original, com tradutor identificado.</div>
-    <div><span class="sym">◇</span> <strong>De outra língua</strong>: tradução feita de uma língua intermediária, como o inglês. A língua de origem aparece na página da obra.</div>
-    <div><span class="sym">✎</span> <strong>Com notas</strong>: introdução, notas, comentário ou cronologia no próprio livro.</div>
-    <div><strong>Sem indicação de edição</strong>: a edição ainda está em conferência. Nenhum link de compra é mostrado.</div>
-  </div>
-</section>
-
-<section class="panel" aria-labelledby="gratuita">
-  <h3 id="gratuita">Leitura gratuita e direitos</h3>
-  <p>Obras cujo autor morreu há mais de 70 anos estão em domínio público no Brasil e podem ser lidas gratuitamente. A tradução tem proteção própria, separada da obra, e é conferida antes de qualquer indicação.</p>
-  <p>A ordem de preferência para leitura gratuita é: edição gratuita em português; texto gratuito em outro idioma; edição paga em português.</p>
-  <p><strong>Esta biblioteca não hospeda nem distribui textos protegidos.</strong> Quando uma obra ainda está protegida, a página indica apenas a edição comprada e a data em que a obra entra em domínio público.</p>
-</section>
-
-<section class="panel" aria-labelledby="associado">
-  <h3 id="associado">Links de compra</h3>
-  <p>Como participante do Programa de Associados da Amazon, a A CIDADELA recebe comissão pelas compras qualificadas feitas pelos links desta página. Os preços são os da própria Amazon e podem mudar, por isso não aparecem aqui.</p>
-  <p>Os links de compra não alteram a indicação das obras. Uma edição só entra depois de conferida.</p>
+<section class="como" aria-label="Como ler a indicação de edição">
+  <p><span class="sym">◆</span><strong>Do original.</strong> Traduzida diretamente da língua original, com tradutor identificado.</p>
+  <p><span class="sym">◇</span><strong>De outra língua.</strong> Traduzida de uma língua intermediária, como o inglês. A língua aparece na página da obra.</p>
+  <p><span class="sym">✎</span><strong>Com notas.</strong> Introdução, notas, comentário ou cronologia no próprio livro.</p>
+  <p><strong>Sem indicação.</strong> A edição ainda está em conferência. Nenhum link de compra aparece.</p>
 </section>
 
 <div id="catalogo"></div>
+
+<section class="notas" aria-label="Direitos, leitura gratuita e links">
+  <div>
+    <h4>Leitura gratuita e direitos</h4>
+    <p>Obras de autores mortos há mais de 70 anos estão em domínio público no Brasil e podem ser lidas gratuitamente. A tradução tem proteção própria, separada da obra.</p>
+    <p><strong>Esta biblioteca não hospeda nem distribui textos protegidos.</strong> Quando a obra ainda está protegida, a página indica a edição comprada e a data em que a obra entra em domínio público.</p>
+  </div>
+  <div>
+    <h4>Links de compra</h4>
+    <p>A A CIDADELA participa do Programa de Associados da Amazon e recebe comissão pelas compras qualificadas feitas pelos links desta página.</p>
+    <p>Os preços são os da própria Amazon, que mudam com frequência, por isso não aparecem aqui. Os links não alteram a indicação das obras: uma edição só entra depois de conferida.</p>
+  </div>
+</section>
 
 <footer>
   <p>A CIDADELA · Filosofia e estratégia para a vida</p>
@@ -109,34 +131,24 @@
 
 <script src="dados.js"></script>
 <script>
-// Cartão: uma capa escolhida, status da edição e botão para a página da obra.
-// As demais edições ficam na página da obra (obra.html).
 function cardHTML(o){
   const era = ERAS.find(x=>x.id===o.e);
-  const situ = o.s==="PD" ? "Domínio público" : `Protegida · domínio a partir de ${o.d}`;
-  const conferida = !!o.ed;
   const destino = `obra.html?id=${encodeURIComponent(o.slug)}`;
-  const edicao = conferida
-    ? `<p class="status">${esc(o.sym ? o.sym+" " : "")}${esc(o.ed)}</p>`
-    : `<p class="status pending">Edição a conferir</p>`;
-  const leitura = o.leitura ? `<p class="more">Leitura gratuita: ${esc(o.leitura)}</p>` : "";
-  const capaProvisoria = `
-      <span class="tag">${esc(era.nome)}</span>
-      <div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div>`;
   const capa = o.img
-    ? `<a class="cover-img" href="${destino}" aria-label="Ver ${esc(o.t)}"><img src="${esc(o.img)}" alt="Capa de ${esc(o.t)}" loading="lazy"></a>`
-    : `<a class="cover" style="--c:${era.cor}" href="${destino}" aria-label="Ver ${esc(o.t)}">${capaProvisoria}</a>`;
+    ? `<a class="capa" href="${destino}" aria-label="Ver ${esc(o.t)}"><img src="${esc(o.img)}" alt="Capa de ${esc(o.t)}" loading="lazy"></a>`
+    : `<a class="capa prov" style="--c:${era.cor}" href="${destino}" aria-label="Ver ${esc(o.t)}"><span class="e">${esc(era.nome)}</span><span><span class="t" style="display:block">${esc(o.t)}</span><span class="a" style="display:block;margin-top:6px">${esc(o.a)}</span></span></a>`;
+  const status = o.ed
+    ? `<p class="status">${o.sym?`<span class="sym">${esc(o.sym)}</span>`:""}${esc(o.ed.split(".")[0])}</p>`
+    : `<p class="status pend">Edição a conferir</p>`;
+  const leitura = o.leitura ? `<p class="leitura">${esc(o.leitura)}</p>` : "";
   return `
-  <article class="card">
+  <article class="obra">
     ${capa}
-    <div class="body">
-      <h3>${esc(o.t)}</h3>
-      <p class="au">${esc(o.a)}</p>
-      <p class="meta">${esc(o.esc)} · ${situ}</p>
-      ${edicao}
-      ${leitura}
-      <a class="btn" href="${destino}">Ver mais</a>
-    </div>
+    <h3>${esc(o.t)}</h3>
+    <p class="au">${esc(o.a)}</p>
+    ${status}
+    ${leitura}
+    <a class="ver" href="${destino}">Ver edições</a>
   </article>`;
 }
 
@@ -146,8 +158,10 @@ function render(){
   for (const era of ERAS){
     const itens = OBRAS.filter(o=>o.e===era.id);
     if(!itens.length) continue;
-    html += `<h2>${esc(era.nome)}</h2>`;
-    html += `<div class="grid">${itens.map(cardHTML).join("")}</div>`;
+    html += `<section class="epoca" aria-labelledby="e-${era.id}">
+      <header><h2 id="e-${era.id}">${esc(era.nome)}</h2><span class="contagem">${itens.length} ${itens.length===1?"obra":"obras"}</span></header>
+      <div class="grid">${itens.map(cardHTML).join("")}</div>
+    </section>`;
   }
   root.innerHTML = html;
 }
