@@ -49,6 +49,8 @@
   .cover .t{font-weight:700;font-size:17px;line-height:1.2;text-wrap:balance}
   .cover .a{font-size:13px;opacity:.9}
   .cover .tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+  .cover-img{display:block;aspect-ratio:2/3;background:var(--soft);overflow:hidden}
+  .cover-img img{display:block;width:100%;height:100%;object-fit:contain;max-width:100%}
   .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
   .body h3{margin:0;font-size:17px;line-height:1.25}
   .body .au{color:var(--muted);font-size:14px;margin:0}
@@ -123,6 +125,7 @@ const OBRAS = [
   // Antiguidade
   {t:"A República", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega", sym:"◆ ✎",
    ed:"Edipro, 496 páginas. Tradução do grego por Edson Bini, com notas de rodapé.",
+   img:"https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
    links:{simples:"https://www.amazon.com.br/dp/8552100746?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B084RKRNPH?tag=acidadela-20"}},
   {t:"Apologia de Sócrates", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega", sym:"",
    ed:"Edipro, 2019, edição de bolso. Tradução de Edson Bini. Origem da tradução e notas em conferência.",
@@ -203,12 +206,18 @@ function cardHTML(o, idx){
     ? `<p class="status">${esc(o.sym ? o.sym+" " : "")}${esc(o.ed)}</p>`
     : `<p class="status pending">Edição a conferir</p>`;
   const leitura = o.leitura ? `<p class="more"><a href="#gratuita">Leitura gratuita: ${esc(o.leitura)}</a></p>` : "";
+  const principal = o.links && (o.links.simples || o.links.dura || o.links.kindle || o.links.bolso);
+  const capaProvisoria = `
+      <span class="tag">${esc(era.nome)}</span>
+      <div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div>`;
+  const capa = o.img
+    ? (principal
+        ? `<a class="cover-img" href="${esc(principal)}" target="_blank" rel="noopener sponsored" aria-label="Ver ${esc(o.t)} na Amazon"><img src="${esc(o.img)}" alt="Capa de ${esc(o.t)}" loading="lazy"></a>`
+        : `<div class="cover-img"><img src="${esc(o.img)}" alt="Capa de ${esc(o.t)}" loading="lazy"></div>`)
+    : `<div class="cover" style="--c:${era.cor}">${capaProvisoria}</div>`;
   return `
   <article class="card" id="obra-${idx}">
-    <div class="cover" style="--c:${era.cor}">
-      <span class="tag">${esc(era.nome)}</span>
-      <div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div>
-    </div>
+    ${capa}
     <div class="body">
       <h3>${esc(o.t)}</h3>
       <p class="au">${esc(o.a)}</p>
