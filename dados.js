@@ -441,22 +441,26 @@ Object.assign(EXTRA_OBRAS, {
   }
 });
 
-/* Capas que são mockup (livro em perspectiva, com sombra). Ficam num quadro de
-   fundo branco, com a imagem inteira e centralizada. As demais aparecem sem quadro.
-   Chave: URL da imagem. */
-const MOCKUPS = new Set([
+/* Capas com fundo branco na própria imagem: mockups (livro em perspectiva, com
+   sombra) e fotos de capa com margem branca. O branco é tornado transparente na
+   exibição (mix-blend-mode: multiply), sem cortar a capa. Chave: URL da imagem. */
+const FUNDO_BRANCO = new Set([
   "https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
   "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg",
   "https://m.media-amazon.com/images/I/71hpuks2EGL._SL1500_.jpg",
   "https://m.media-amazon.com/images/I/71LTFQOXbRL._SL1500_.jpg",
   "https://m.media-amazon.com/images/I/814j+g6I-WL._SL1500_.jpg",
   "https://m.media-amazon.com/images/I/511WVt529fL._SL1500_.jpg",
-  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg"
+  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/7182KzKdiuL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/41jSYbLThPL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/61XgkB3IDBL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/61hAKXNgRpL._SL1500_.jpg"
 ]);
 
-/* Classe extra do quadro da capa: " quadro" para mockup, vazio para as demais. */
+/* Classe extra da capa: " sem-fundo" quando a imagem tem fundo branco, vazio nas demais. */
 function classeCapa(src){
-  return MOCKUPS.has(src) ? " quadro" : "";
+  return FUNDO_BRANCO.has(src) ? " sem-fundo" : "";
 }
 
 /* Aplica EXTRA_OBRAS: texto da obra e edições. Agrupa por editora e páginas,
