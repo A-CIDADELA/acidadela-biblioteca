@@ -138,7 +138,7 @@ function cardHTML(o){
     : `<a class="capa prov" style="--c:${era.cor}" href="${destino}" aria-label="Ver ${esc(o.t)}"><span class="e">${esc(era.nome)}</span><span><span class="t" style="display:block">${esc(o.t)}</span><span class="a" style="display:block;margin-top:6px">${esc(o.a)}</span></span></a>`;
   const principal = o.edicoes[0];
   const status = principal
-    ? `<p class="status">${esc(principal.ed.split(".")[0])}</p>${principal.sym?`<p class="marcas">${marcasHTML(principal.sym)}</p>`:""}`
+    ? ""
     : `<p class="status pend">Edição a conferir</p>`;
   const leitura = o.leitura ? `<p class="leitura">${esc(o.leitura)}</p>` : "";
   return `
