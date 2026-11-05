@@ -75,6 +75,7 @@
   .sobre{margin-top:20px}
   .sobre .texto{font-size:16px;color:var(--muted)}
   h2.sub{font-size:22px;margin-top:28px}
+  .ed-linha{margin:14px 0 0;font-size:16px}
 
   footer{border-top:1px solid var(--rule);margin-top:72px;padding-top:20px;color:var(--muted);font-size:14px;display:grid;gap:6px}
   footer p{margin:0}
@@ -117,25 +118,24 @@ function renderObra(){
     ? `<div class="capa"><img src="${esc(o.img)}" alt="Capa de ${esc(o.t)}"></div>`
     : `<div class="capa prov" style="--c:${era.cor}"><span class="e">${esc(era.nome)}</span><div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div></div>`;
 
-  const formatos = FORMATOS.filter(f=>o.links && o.links[f.k]);
-  let edicoes;
-  if(!o.ed){
-    edicoes = `<p class="vazio">Edição em conferência. Nenhum link de compra aparece até a edição ser conferida.</p>`;
-  } else if(!formatos.length){
-    edicoes = `<p class="sem-edicao">${o.sym?`<span class="sym">${esc(o.sym)}</span>`:""}${esc(o.ed)}</p>`;
-  } else {
-    edicoes = `<ul class="edicoes">${formatos.map(f=>`
-      <li>
-        <span class="formato">${esc(f.rotulo)}</span>
-        <p class="ed">${o.sym?`<span class="sym">${esc(o.sym)}</span>`:""}${esc(o.ed)}</p>
-        <a class="compra" href="${esc(o.links[f.k])}" target="_blank" rel="noopener sponsored">Ver na Amazon</a>
-      </li>`).join("")}</ul>`;
-  }
-
   const paragrafos = t => t.split("\n\n").map(p=>`<p class="texto">${esc(p)}</p>`).join("");
   const sobreObraHTML = o.sobre ? `<div class="sobre">${paragrafos(o.sobre.obra)}</div>` : "";
-  const sobreEdicaoHTML = o.sobre && o.sobre.edicao
-    ? `<section class="secao"><h2>Sobre esta edição</h2><p class="texto">${esc(o.sobre.edicao)}</p></section>` : "";
+  const blocoEdicao = ed => {
+    const formatos = FORMATOS.filter(f=>ed.links && ed.links[f.k]);
+    const titulo = ed.nome ? `<h2 class="sub">${esc(ed.nome)}</h2>` : "";
+    const sobreEd = ed.sobre ? `<p class="texto">${esc(ed.sobre)}</p>` : "";
+    const linhas = formatos.map(f=>`
+      <li>
+        <span class="formato">${esc(f.rotulo)}</span>
+        <p class="ed">${ed.sym?`<span class="sym">${esc(ed.sym)}</span>`:""}${esc(ed.ed)}</p>
+        <a class="compra" href="${esc(ed.links[f.k])}" target="_blank" rel="noopener sponsored">Ver na Amazon</a>
+      </li>`).join("");
+    const semFormato = `<p class="ed-linha"><span class="sym">${esc(ed.sym||"")}</span>${esc(ed.ed)}</p>`;
+    return `${titulo}${linhas?"":semFormato}${sobreEd}${linhas?`<ul class="edicoes">${linhas}</ul>`:""}`;
+  };
+  const edicoes = o.edicoes.length
+    ? o.edicoes.map(blocoEdicao).join("")
+    : `<p class="vazio">Edição em conferência. Nenhum link de compra aparece até a edição ser conferida.</p>`;
 
   const leitura = o.leitura
     ? `<div class="secao"><h2>Leitura gratuita</h2><p class="leitura">${esc(o.leitura)}.</p></div>`
@@ -151,7 +151,6 @@ function renderObra(){
         ${sobreObraHTML}
       </div>
     </div>
-    ${sobreEdicaoHTML}
     <section class="secao">
       <h2>Edições</h2>
       ${edicoes}

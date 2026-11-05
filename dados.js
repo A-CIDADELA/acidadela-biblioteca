@@ -14,14 +14,21 @@ const ERAS = [
 
 const OBRAS = [
   // Antiguidade
-  {t:"A República", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega", sym:"◆ ✎",
-   ed:"Edipro, 496 páginas. Tradução do grego por Edson Bini, com notas de rodapé.",
+  {t:"A República", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega",
    img:"https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
    sobre:{
-     obra:"A República, também conhecida como Da Justiça, é uma das obras mais lidas e estudadas de Platão e um dos textos centrais da filosofia ocidental.\n\nO diálogo parte de uma pergunta simples e difícil: o que é a justiça? Sócrates e seus interlocutores examinam se ela consiste em dar a cada um o que lhe é devido, qual é a sua natureza e do que ela é feita, e se vale a pena ser justo mesmo quando a injustiça traria vantagens sem castigo.\n\nPara responder, Platão imagina uma cidade justa, organizada em classes, governada por filósofos, com guardiões que não possuem propriedade privada e uma educação voltada à formação do caráter. A ideia é que a justiça não seja apenas pensada, mas possa ser aplicada e realizada na vida política.",
-     edicao:"Terceira edição da Edipro (2019), com 496 páginas. Traduzida do grego por Edson Bini, a partir do texto estabelecido por Hermann para a Teubner. Traz a numeração de Stephanus nas margens, uma cronologia da obra de Platão, dados biográficos e uma sinopse dos temas."
+     obra:"A República, também conhecida como Da Justiça, é uma das obras mais lidas e estudadas de Platão e um dos textos centrais da filosofia ocidental.\n\nO diálogo parte de uma pergunta simples e difícil: o que é a justiça? Sócrates e seus interlocutores examinam se ela consiste em dar a cada um o que lhe é devido, qual é a sua natureza e do que ela é feita, e se vale a pena ser justo mesmo quando a injustiça traria vantagens sem castigo.\n\nPara responder, Platão imagina uma cidade justa, organizada em classes, governada por filósofos, com guardiões que não possuem propriedade privada e uma educação voltada à formação do caráter. A ideia é que a justiça não seja apenas pensada, mas possa ser aplicada e realizada na vida política."
    },
-   links:{simples:"https://www.amazon.com.br/dp/8552100746?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B084RKRNPH?tag=acidadela-20"}},
+   edicoes:[
+     {nome:"Edipro", sym:"◆ ✎",
+      ed:"Edipro, 496 páginas. Tradução do grego por Edson Bini, com notas de rodapé.",
+      sobre:"Terceira edição da Edipro (2019), com 496 páginas. Traduzida do grego por Edson Bini, a partir do texto estabelecido por Hermann para a Teubner. Traz a numeração de Stephanus nas margens, uma cronologia da obra de Platão, dados biográficos e uma sinopse dos temas.",
+      links:{simples:"https://www.amazon.com.br/dp/8552100746?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B084RKRNPH?tag=acidadela-20"}},
+     {nome:"Principis", sym:"◇ ✎",
+      ed:"Principis, 640 páginas. Tradução do inglês por Fábio Meneses Santos, com comentário de Benjamin Jowett.",
+      sobre:"Edição da Principis (2021), com 640 páginas. Traduzida do inglês, a partir da versão de Benjamin Jowett, que acompanha o texto com comentários e uma análise extensa da obra. Por ser feita de outra língua, não substitui a tradução direta do grego, mas oferece um comentário amplo para quem busca uma leitura guiada.",
+      links:{simples:"https://www.amazon.com.br/dp/6555524146?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B0929B4C8N?tag=acidadela-20"}}
+   ]},
   {t:"Apologia de Sócrates", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega", sym:"",
    ed:"Edipro, 2019, edição de bolso. Tradução de Edson Bini. Origem da tradução e notas em conferência.",
    links:{bolso:"https://www.amazon.com.br/dp/8552100665?tag=acidadela-20"}},
@@ -89,6 +96,12 @@ function slugObra(t){
   return t.normalize("NFD").replace(/[̀-ͯ]/g,"")
     .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 }
-OBRAS.forEach(o => { o.slug = slugObra(o.t); });
+OBRAS.forEach(o => {
+  o.slug = slugObra(o.t);
+  // Obras com uma edição usam os campos ed/sym/links; obras com várias usam edicoes[]
+  if(!o.edicoes){
+    o.edicoes = o.ed ? [{nome:"", sym:o.sym||"", ed:o.ed, sobre:"", links:o.links||{}}] : [];
+  }
+});
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
