@@ -347,7 +347,9 @@ Object.assign(EXTRA_OBRAS, {
   },
   "Temor e Tremor": {
     sobre: "Temor e Tremor, de Søren Kierkegaard, foi publicado em 1843 sob o pseudônimo de Johannes de Silentio. O livro toma como ponto de partida o episódio bíblico em que Abraão se dispõe a sacrificar Isaac. A partir dele, o autor opõe a moral universal, que pode justificar o sacrifício com regras gerais, à fé, que exige uma relação pessoal e inexplicável com Deus.\n\nO texto é um dos clássicos da filosofia da religião e da ética, com uma prosa que se faz de perguntas. Vale a leitura para pensar os limites da razão e da moral diante de uma decisão que não pode ser justificada por outros.",
-    picks: []
+    picks: [
+      ["simples","8528905918","610kHFajO9L","Hemus",128,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
   },
   "Genealogia da Moral": {
     sobre: "A Genealogia da Moral, de Friedrich Nietzsche, foi publicada em 1887, em três ensaios que investigam a origem dos valores morais. Nietzsche distingue a moral dos senhores, que chama de bom e ruim a partir da própria força, da moral dos escravos, que nasce do ressentimento e chama de mau o que é poderoso. Analisa também a culpa, a consciência e os ideais ascéticos.\n\nO livro é provocador e desconfortável, porque questiona a própria origem da moral que costumamos tomar como natural. Vale a leitura para examinar como os valores se formam historicamente e para avaliar as conclusões do autor com cuidado, já que ele mesmo as apresenta como hipóteses.",
