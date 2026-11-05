@@ -383,7 +383,6 @@ Object.assign(EXTRA_OBRAS, {
   "O Caminho da Servidão": {
     sobre: "O Caminho da Servidão, de Friedrich Hayek, foi publicado em 1944, durante a Segunda Guerra. Hayek argumenta que o planejamento central da economia, mesmo com boas intenções, tende a concentrar poder e a destruir as garantias da liberdade individual. Para ele, a passagem do planejamento econômico ao controle político não é um acidente, mas uma consequência lógica.\n\nO livro defende o Estado de direito e a competição de mercado como proteções contra essa trajetória. Vale a leitura para discutir até onde a intervenção do Estado é compatível com a liberdade e para examinar um dos argumentos liberais mais influentes do século XX.",
     picks: [
-      ["dura","6587200079","613qjAgCtOL","Folha",256,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
       ["simples","6586029724","61XgkB3IDBL","LVM Editora",344,"","Segunda edição, conforme a ficha. Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
       ["kindle","B078JC2BS5","812oa3zkGFL","LVM Editora",234,"","Versão digital da LVM. Tradutor não identificado na ficha."]
     ]
@@ -441,6 +440,29 @@ Object.assign(EXTRA_OBRAS, {
     ]
   }
 });
+
+/* Recorte de capas em perspectiva (mockup 3D com sombra). Cada janela
+   [largura original, altura original, x0, y0, x1, y1] delimita só a capa frontal,
+   sem lombada e sem sombra, com proporção 2:3. Chave: URL da imagem.
+   Imagens sem entrada aqui são exibidas inteiras, como antes. */
+const RECORTES = {
+  "https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg": [1202,1500,325,112,1155,1357],
+  "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg": [1150,1422,248,100,1053,1308],
+  "https://m.media-amazon.com/images/I/71hpuks2EGL._SL1500_.jpg": [1200,1200,216,60,888,1068],
+  "https://m.media-amazon.com/images/I/71LTFQOXbRL._SL1500_.jpg": [1200,1200,216,72,888,1080],
+  "https://m.media-amazon.com/images/I/814j+g6I-WL._SL1500_.jpg": [1224,1500,290,112,1100,1327],
+  "https://m.media-amazon.com/images/I/511WVt529fL._SL1500_.jpg": [972,1200,250,144,874,1080],
+  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg": [1188,1500,215,230,880,1228]
+};
+
+/* Devolve o estilo inline que aplica o recorte acima (ou vazio, se não houver recorte). */
+function recorteStyle(src){
+  const r = RECORTES[src];
+  if(!r) return "";
+  const [nw,nh,x0,y0,x1,y1] = r;
+  const ww = x1-x0, hh = y1-y0;
+  return `position:absolute;width:${(100*nw/ww).toFixed(3)}%;height:${(100*nh/hh).toFixed(3)}%;left:${(-100*x0/ww).toFixed(3)}%;top:${(-100*y0/hh).toFixed(3)}%;max-width:none`;
+}
 
 /* Aplica EXTRA_OBRAS: texto da obra e edições. Agrupa por editora e páginas,
    para que cada bloco de edição descreva uma única publicação. */

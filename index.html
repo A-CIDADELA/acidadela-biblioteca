@@ -134,7 +134,7 @@ function cardHTML(o){
   const destino = `obra.html?id=${encodeURIComponent(o.slug)}`;
   const capaImg = o.img || (o.edicoes[0] && o.edicoes[0].img) || "";
   const capa = capaImg
-    ? `<a class="capa" href="${destino}" aria-label="Ver ${esc(o.t)}"><img src="${esc(capaImg)}" alt="Capa de ${esc(o.t)}" loading="lazy"></a>`
+    ? `<a class="capa" href="${destino}" aria-label="Ver ${esc(o.t)}"><img src="${esc(capaImg)}" alt="Capa de ${esc(o.t)}" loading="lazy" style="${recorteStyle(capaImg)}"></a>`
     : `<a class="capa prov" style="--c:${era.cor}" href="${destino}" aria-label="Ver ${esc(o.t)}"><span class="e">${esc(era.nome)}</span><span><span class="t" style="display:block">${esc(o.t)}</span><span class="a" style="display:block;margin-top:6px">${esc(o.a)}</span></span></a>`;
   const principal = o.edicoes[0];
   const status = principal
