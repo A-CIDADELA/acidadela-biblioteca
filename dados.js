@@ -67,7 +67,7 @@ const OBRAS = [
   {t:"Leviatã", a:"Thomas Hobbes (1588–1679)", e:"ilum", s:"PD", esc:"Contratualismo"},
   {t:"Segundo Tratado sobre o Governo", a:"John Locke (1632–1704)", e:"ilum", s:"PD", esc:"Contratualismo"},
   {t:"Do Contrato Social", a:"Jean-Jacques Rousseau (1712–1778)", e:"ilum", s:"PD", esc:"Contratualismo"},
-  {t:"Do Espírito das Leis", a:"Montesquieu (1689–1755)", e:"ilum", s:"PD", esc:"Iluminismo"},
+  {t:"Do Espírito das Leis", a:"Montesquieu (1689–1755)", e:"ilum", s:"PD", esc:"Iluminismo", img:"https://m.media-amazon.com/images/I/81e1ziiKRhL._SL1500_.jpg"},
   {t:"Cândido", a:"Voltaire (1694–1778)", e:"ilum", s:"PD", esc:"Iluminismo"},
   {t:"O que é esclarecimento?", a:"Immanuel Kant (1724–1804)", e:"ilum", s:"PD", esc:"Iluminismo"},
   {t:"Reflexões sobre a Revolução em França", a:"Edmund Burke (1729–1797)", e:"ilum", s:"PD", esc:"Tradição conservadora"},
