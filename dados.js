@@ -20,11 +20,11 @@ const OBRAS = [
      obra:"A República, também conhecida como Da Justiça, é uma das obras mais lidas e estudadas de Platão e um dos textos centrais da filosofia ocidental.\n\nO diálogo parte de uma pergunta simples e difícil: o que é a justiça? Sócrates e seus interlocutores examinam se ela consiste em dar a cada um o que lhe é devido, qual é a sua natureza e do que ela é feita, e se vale a pena ser justo mesmo quando a injustiça traria vantagens sem castigo.\n\nPara responder, Platão imagina uma cidade justa, organizada em classes, governada por filósofos, com guardiões que não possuem propriedade privada e uma educação voltada à formação do caráter. A ideia é que a justiça não seja apenas pensada, mas possa ser aplicada e realizada na vida política."
    },
    edicoes:[
-     {nome:"Edipro", sym:"◆ ✎",
+     {nome:"Edipro", sym:"◆ ✎", img:"https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
       ed:"Edipro, 496 páginas. Tradução do grego por Edson Bini, com notas de rodapé.",
       sobre:"Terceira edição da Edipro (2019), com 496 páginas. Traduzida do grego por Edson Bini, a partir do texto estabelecido por Hermann para a Teubner. Traz a numeração de Stephanus nas margens, uma cronologia da obra de Platão, dados biográficos e uma sinopse dos temas.",
       links:{simples:"https://www.amazon.com.br/dp/8552100746?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B084RKRNPH?tag=acidadela-20"}},
-     {nome:"Principis", sym:"◇ ✎",
+     {nome:"Principis", sym:"◇ ✎", img:"https://m.media-amazon.com/images/I/61iW5sHVzdL._SL1500_.jpg",
       ed:"Principis, 640 páginas. Tradução do inglês por Fábio Meneses Santos, com comentário de Benjamin Jowett.",
       sobre:"Edição da Principis (2021), com 640 páginas. Traduzida do inglês, a partir da versão de Benjamin Jowett, que acompanha o texto com comentários e uma análise extensa da obra. Por ser feita de outra língua, não substitui a tradução direta do grego, mas oferece um comentário amplo para quem busca uma leitura guiada.",
       links:{simples:"https://www.amazon.com.br/dp/6555524146?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B0929B4C8N?tag=acidadela-20"}}

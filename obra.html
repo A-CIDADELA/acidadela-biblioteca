@@ -76,6 +76,10 @@
   .sobre .texto{font-size:16px;color:var(--muted)}
   h2.sub{font-size:22px;margin-top:28px}
   .ed-linha{margin:14px 0 0;font-size:16px}
+  .ed-bloco{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:24px;align-items:start;margin-top:12px}
+  .ed-capa{background:#FFFFFF;border-radius:2px;overflow:hidden;aspect-ratio:2/3;max-width:120px}
+  .ed-capa img{display:block;width:100%;height:100%;object-fit:contain}
+  .ed-corpo{min-width:0}
 
   footer{border-top:1px solid var(--rule);margin-top:72px;padding-top:20px;color:var(--muted);font-size:14px;display:grid;gap:6px}
   footer p{margin:0}
@@ -84,6 +88,8 @@
     .topo{grid-template-columns:1fr}
     .capa{max-width:240px}
     .edicoes li{grid-template-columns:1fr;gap:4px}
+    .ed-bloco{grid-template-columns:1fr}
+    .ed-capa{max-width:140px}
     .compra{justify-self:start;margin-top:4px}
   }
 </style>
@@ -131,7 +137,8 @@ function renderObra(){
         <a class="compra" href="${esc(ed.links[f.k])}" target="_blank" rel="noopener sponsored">Ver na Amazon</a>
       </li>`).join("");
     const semFormato = `<p class="ed-linha"><span class="sym">${esc(ed.sym||"")}</span>${esc(ed.ed)}</p>`;
-    return `${titulo}${linhas?"":semFormato}${sobreEd}${linhas?`<ul class="edicoes">${linhas}</ul>`:""}`;
+    const capaEd = ed.img ? `<div class="ed-capa"><img src="${esc(ed.img)}" alt="Capa da edição ${esc(ed.nome||"")} de ${esc(o.t)}" loading="lazy"></div>` : "";
+    return `${titulo}<div class="ed-bloco">${capaEd}<div class="ed-corpo">${linhas?"":semFormato}${sobreEd}${linhas?`<ul class="edicoes">${linhas}</ul>`:""}</div></div>`;
   };
   const edicoes = o.edicoes.length
     ? o.edicoes.map(blocoEdicao).join("")
