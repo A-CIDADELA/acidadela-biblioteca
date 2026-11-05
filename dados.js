@@ -468,7 +468,8 @@ function classeCapa(src){
    inferior esquerdo do quadro e ampliada até o maior tamanho que cabe sem cortar. */
 const POSICAO = {
   "https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg": [1202,1500,0.052,0.003,0.98,0.97],
-  "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg": [1150,1422,0.073,0.004,0.95,0.977]
+  "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg": [1150,1422,0.073,0.004,0.95,0.977],
+  "https://m.media-amazon.com/images/I/41jSYbLThPL._SL1500_.jpg": [1000,1000,0.167,0,0.831,1]
 };
 
 /* Estilo inline que aplica o posicionamento acima (ou vazio, se a imagem não tem entrada). */
