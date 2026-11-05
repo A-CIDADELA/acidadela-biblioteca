@@ -15,7 +15,7 @@ const ERAS = [
 const OBRAS = [
   // Antiguidade
   {t:"A República", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega",
-   img:"https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
+   img:"https://m.media-amazon.com/images/I/61iW5sHVzdL._SL1500_.jpg",
    sobre:{
      obra:"A República é talvez o livro que mais moldou a forma como o Ocidente pensa a política. Platão o escreveu como um longo diálogo em que Sócrates e alguns interlocutores discutem o que é uma vida boa, como deve ser uma cidade bem ordenada e, sobretudo, o que é a justiça.\n\nA pergunta de partida é simples e desconcertante. As primeiras respostas, como «dar a cada um o que lhe é devido», são examinadas e postas à prova uma a uma. O desafio mais forte vem de Glauco, que pede a Sócrates que prove que ser justo é melhor do que parecer justo, mesmo que a injustiça trouxesse vantagens sem que ninguém percebesse.\n\nPara responder, Platão constrói uma cidade no discurso, e a estrutura dela espelha a da alma: produtores, guardiões e governantes filósofos. A justiça aparece quando cada parte cumpre a sua função sem invadir a dos outros. Essa cidade também é uma escola. A música, a ginástica, a matemática e a dialética formam o caráter antes de formar o soldado ou o governante.\n\nMuitas imagens atravessam o livro e permanecem na memória, como a alegoria da caverna, em que homens presos desde a infância tomam sombras projetadas na parede pela própria realidade. Ler A República é, em parte, aprender a desconfiar das opiniões que parecem óbvias e a perguntar o que as sustenta.\n\nPor que ler hoje? Porque o livro não entrega respostas prontas. Ele obriga o leitor a pensar sobre poder, desigualdade, educação e a relação entre o indivíduo e a comunidade, e deixa uma pergunta que continua aberta: uma sociedade justa depende de governantes raros, ou pode ser construída por cidadãos comuns que pensam bem?"
    },
@@ -29,7 +29,7 @@ const OBRAS = [
       sobre:"Edição da Principis (2021), com 640 páginas. Traduzida do inglês, a partir da versão de Benjamin Jowett, que acompanha o texto com comentários e uma análise extensa da obra. Por ser feita de outra língua, não substitui a tradução direta do grego, mas oferece um comentário amplo para quem busca uma leitura guiada.",
       links:{simples:"https://www.amazon.com.br/dp/6555524146?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B0929B4C8N?tag=acidadela-20"}}
    ]},
-  {t:"Apologia de Sócrates", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega",
+  {t:"Apologia de Sócrates", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega", img:"https://m.media-amazon.com/images/I/91YGPexFSML._SL1500_.jpg",
    sobre:{obra:"A Apologia de Sócrates relata a defesa do filósofo diante de um tribunal de Atenas, em 399 a.C. Acusado de não reconhecer os deuses da cidade, de introduzir divindades novas e de corromper a juventude, Sócrates enfrentava a pena de morte. O texto é tradicionalmente atribuído a Platão, que estava presente.\n\nSócrates não recorre à emoção. Em vez de pedir a piedade dos juízes, como era costume, examina cada acusação. Mostra que nunca cobrou por seus ensinamentos e explica de onde veio sua missão, a partir de uma resposta do oráculo de Delfos. Afirma que preferiria a morte a abandonar a filosofia, porque para ele uma vida sem exame não vale a pena ser vivida.\n\nUm júri de 501 cidadãos o declarou culpado. A condenação e as palavras finais de Sócrates, sobre o que é morrer e o que é viver, fecham o texto com a mesma coerência com que ele viveu.\n\nPor que ler? Porque é um dos registros mais diretos de um pensador que deu sua vida à pergunta. O texto é curto, o estilo é claro e o tema segue atual: o que significa dizer a verdade a quem tem poder sobre nós, e até onde vai a coragem de quem pensa diferente da maioria."},
    edicoes:[
      {nome:"Edipro", sym:"", img:"https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg",
@@ -61,7 +61,7 @@ const OBRAS = [
   {t:"A Cidade Virtuosa", a:"Al-Farabi (c. 872–950)", e:"medio", s:"PD", esc:"Filosofia islâmica"},
   // Renascimento e política moderna
   {t:"O Príncipe", a:"Maquiavel (1469–1527)", e:"renasc", s:"PD", esc:"Realismo político", leitura:"Texto em inglês, Project Gutenberg"},
-  {t:"Utopia", a:"Thomas More (1478–1535)", e:"renasc", s:"PD", esc:"Utopia"},
+  {t:"Utopia", a:"Thomas More (1478–1535)", e:"renasc", s:"PD", esc:"Utopia", img:"https://m.media-amazon.com/images/I/61wluuheorL._SL1500_.jpg"},
   {t:"Discurso da Servidão Voluntária", a:"Étienne de La Boétie (1530–1563)", e:"renasc", s:"PD", esc:"Servidão voluntária"},
   // Iluminismo e contrato
   {t:"Leviatã", a:"Thomas Hobbes (1588–1679)", e:"ilum", s:"PD", esc:"Contratualismo"},
