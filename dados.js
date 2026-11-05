@@ -451,8 +451,8 @@ const RECORTES = {
   "https://m.media-amazon.com/images/I/71hpuks2EGL._SL1500_.jpg": [1200,1200,216,60,888,1068],
   "https://m.media-amazon.com/images/I/71LTFQOXbRL._SL1500_.jpg": [1200,1200,216,72,888,1080],
   "https://m.media-amazon.com/images/I/814j+g6I-WL._SL1500_.jpg": [1224,1500,290,112,1100,1327],
-  "https://m.media-amazon.com/images/I/511WVt529fL._SL1500_.jpg": [972,1200,250,144,874,1080],
-  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg": [1188,1500,215,230,880,1228]
+  "https://m.media-amazon.com/images/I/511WVt529fL._SL1500_.jpg": [972,1200,240,130,884,1096],
+  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg": [1188,1500,215,150,880,1148]
 };
 
 /* Devolve o estilo inline que aplica o recorte acima (ou vazio, se não houver recorte). */
