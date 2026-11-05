@@ -18,7 +18,7 @@ const OBRAS = [
    ed:"Edipro, 496 páginas. Tradução do grego por Edson Bini, com notas de rodapé.",
    img:"https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
    sobre:{
-     obra:"Diálogo em que Sócrates e seus interlocutores procuram definir a justiça e, para isso, imaginam uma cidade justa. A conversa avança para a alma, a educação, o papel dos guardiões e a ideia de governo dos filósofos.",
+     obra:"A República, também conhecida como Da Justiça, é uma das obras mais lidas e estudadas de Platão e um dos textos centrais da filosofia ocidental.\n\nO diálogo parte de uma pergunta simples e difícil: o que é a justiça? Sócrates e seus interlocutores examinam se ela consiste em dar a cada um o que lhe é devido, qual é a sua natureza e do que ela é feita, e se vale a pena ser justo mesmo quando a injustiça traria vantagens sem castigo.\n\nPara responder, Platão imagina uma cidade justa, organizada em classes, governada por filósofos, com guardiões que não possuem propriedade privada e uma educação voltada à formação do caráter. A ideia é que a justiça não seja apenas pensada, mas possa ser aplicada e realizada na vida política.",
      edicao:"Terceira edição da Edipro (2019), com 496 páginas. Traduzida do grego por Edson Bini, a partir do texto estabelecido por Hermann para a Teubner. Traz a numeração de Stephanus nas margens, uma cronologia da obra de Platão, dados biográficos e uma sinopse dos temas."
    },
    links:{simples:"https://www.amazon.com.br/dp/8552100746?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B084RKRNPH?tag=acidadela-20"}},

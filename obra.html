@@ -71,7 +71,9 @@
   .como strong{color:var(--ink);font-weight:600}
 
   .leitura{font-size:16px;margin:0}
-  .texto{font-size:17px;line-height:1.65;margin:0 0 12px;max-width:68ch}
+  .texto{font-size:17px;line-height:1.65;margin:0 0 12px;max-width:60ch}
+  .sobre{margin-top:20px}
+  .sobre .texto{font-size:16px;color:var(--muted)}
   h2.sub{font-size:22px;margin-top:28px}
 
   footer{border-top:1px solid var(--rule);margin-top:72px;padding-top:20px;color:var(--muted);font-size:14px;display:grid;gap:6px}
@@ -130,9 +132,11 @@ function renderObra(){
       </li>`).join("")}</ul>`;
   }
 
-  const sobreHTML = o.sobre
-    ? `<section class="secao"><h2>Sobre a obra</h2><p class="texto">${esc(o.sobre.obra)}</p>${o.sobre.edicao?`<h2 class="sub">Sobre esta edição</h2><p class="texto">${esc(o.sobre.edicao)}</p>`:""}</section>`
-    : "";
+  const paragrafos = t => t.split("\n\n").map(p=>`<p class="texto">${esc(p)}</p>`).join("");
+  const sobreObraHTML = o.sobre ? `<div class="sobre">${paragrafos(o.sobre.obra)}</div>` : "";
+  const sobreEdicaoHTML = o.sobre && o.sobre.edicao
+    ? `<section class="secao"><h2>Sobre esta edição</h2><p class="texto">${esc(o.sobre.edicao)}</p></section>` : "";
+
   const leitura = o.leitura
     ? `<div class="secao"><h2>Leitura gratuita</h2><p class="leitura">${esc(o.leitura)}.</p></div>`
     : "";
@@ -144,9 +148,10 @@ function renderObra(){
         <h1>${esc(o.t)}</h1>
         <p class="au">${esc(o.a)}</p>
         <p class="meta">${esc(o.esc)} · ${esc(situ)}</p>
+        ${sobreObraHTML}
       </div>
     </div>
-    ${sobreHTML}
+    ${sobreEdicaoHTML}
     <section class="secao">
       <h2>Edições</h2>
       ${edicoes}
