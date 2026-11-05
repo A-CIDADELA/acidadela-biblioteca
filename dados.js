@@ -29,9 +29,14 @@ const OBRAS = [
       sobre:"Edição da Principis (2021), com 640 páginas. Traduzida do inglês, a partir da versão de Benjamin Jowett, que acompanha o texto com comentários e uma análise extensa da obra. Por ser feita de outra língua, não substitui a tradução direta do grego, mas oferece um comentário amplo para quem busca uma leitura guiada.",
       links:{simples:"https://www.amazon.com.br/dp/6555524146?tag=acidadela-20", kindle:"https://www.amazon.com.br/dp/B0929B4C8N?tag=acidadela-20"}}
    ]},
-  {t:"Apologia de Sócrates", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega", sym:"",
-   ed:"Edipro, 2019, edição de bolso. Tradução de Edson Bini. Origem da tradução e notas em conferência.",
-   links:{bolso:"https://www.amazon.com.br/dp/8552100665?tag=acidadela-20"}},
+  {t:"Apologia de Sócrates", a:"Platão (428–348 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega",
+   sobre:{obra:"Este diálogo registra a defesa de Sócrates diante de um tribunal ateniense, em 399 a.C. Ele foi acusado de não reconhecer os deuses da cidade, de introduzir novos cultos e de corromper a juventude.\n\nSócrates sustenta que apenas praticava a filosofia e declara que preferiria a morte a abandoná-la. Foi condenado por um júri de 501 cidadãos.\n\nO texto é atribuído a Platão, que, segundo a tradição, acompanhou o julgamento. Por isso, é também um dos registros mais diretos do modo de pensar de Sócrates."},
+   edicoes:[
+     {nome:"Edipro", sym:"",
+      ed:"Edipro, 2019, edição de bolso. Tradução de Edson Bini. Origem da tradução e notas em conferência.",
+      sobre:"Edição de bolso da Edipro (2019), com 80 páginas. Tradução de Edson Bini. A indicação de origem da tradução e a presença de notas ainda estão em conferência.",
+      links:{bolso:"https://www.amazon.com.br/dp/8552100665?tag=acidadela-20"}}
+   ]},
   {t:"Ética a Nicômaco", a:"Aristóteles (384–322 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega"},
   {t:"Política", a:"Aristóteles (384–322 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega"},
   {t:"Carta a Meneceu", a:"Epicuro (341–270 a.C.)", e:"antig", s:"PD", esc:"Epicurismo"},
