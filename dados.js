@@ -463,6 +463,28 @@ function classeCapa(src){
   return FUNDO_BRANCO.has(src) ? " sem-fundo" : "";
 }
 
+/* Posicionamento da capa dentro do quadro 2:3: [largura original, altura original,
+   x0, y0, x1, y1] delimita a capa (fração da imagem). A capa é ancorada no canto
+   inferior esquerdo do quadro e ampliada até o maior tamanho que cabe sem cortar. */
+const POSICAO = {
+  "https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg": [1202,1500,0.052,0.003,0.98,0.97],
+  "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg": [1150,1422,0.073,0.004,0.95,0.977]
+};
+
+/* Estilo inline que aplica o posicionamento acima (ou vazio, se a imagem não tem entrada). */
+function ajusteStyle(src){
+  const p = POSICAO[src];
+  if(!p) return "";
+  const [nw,nh,x0,y0,x1,y1] = p;
+  const r = nw/nh;
+  const Q = 2/3;                                   // proporção do quadro (largura/altura)
+  const Hr = Math.min(1/(y1-y0), Q/((x1-x0)*r));   // altura da imagem, em alturas do quadro
+  const Wr = Hr*r;                                 // largura da imagem, em alturas do quadro
+  const left = -x0*Wr/Q*100;
+  const top = (1 - y1*Hr)*100;
+  return `position:absolute;width:${(Wr/Q*100).toFixed(3)}%;height:${(Hr*100).toFixed(3)}%;left:${left.toFixed(3)}%;top:${top.toFixed(3)}%;max-width:none`;
+}
+
 /* Aplica EXTRA_OBRAS: texto da obra e edições. Agrupa por editora e páginas,
    para que cada bloco de edição descreva uma única publicação. */
 OBRAS.forEach(o=>{

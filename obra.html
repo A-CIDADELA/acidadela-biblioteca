@@ -132,7 +132,7 @@ function renderObra(){
   const situ = o.s==="PD" ? "Domínio público" : `Protegida · domínio a partir de ${o.d}`;
   const capaImg = o.img || (o.edicoes[0] && o.edicoes[0].img) || "";
   const capa = capaImg
-    ? `<div class="capa${classeCapa(capaImg)}"><img src="${esc(capaImg)}" alt="Capa de ${esc(o.t)}"></div>`
+    ? `<div class="capa${classeCapa(capaImg)}"><img src="${esc(capaImg)}" alt="Capa de ${esc(o.t)}" style="${ajusteStyle(capaImg)}"></div>`
     : `<div class="capa prov" style="--c:${era.cor}"><span class="e">${esc(era.nome)}</span><div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div></div>`;
 
   const paragrafos = t => t.split("\n\n").map(p=>`<p class="texto">${esc(p)}</p>`).join("");
@@ -152,7 +152,7 @@ function renderObra(){
         <a class="compra" href="${esc(ed.links[f.k])}" target="_blank" rel="noopener sponsored">Ver na Amazon</a>
       </li>`).join("");
     const semFormato = `<p class="ed-linha">${marcasHTML(ed.sym)}${esc(ed.ed)}</p>`;
-    const capaEd = ed.img ? `<div class="ed-capa${classeCapa(ed.img)}"><img src="${esc(ed.img)}" alt="Capa da edição ${esc(ed.nome||"")} de ${esc(o.t)}" loading="lazy"></div>` : "";
+    const capaEd = ed.img ? `<div class="ed-capa${classeCapa(ed.img)}"><img src="${esc(ed.img)}" alt="Capa da edição ${esc(ed.nome||"")} de ${esc(o.t)}" loading="lazy" style="${ajusteStyle(ed.img)}"></div>` : "";
     return `${titulo}<div class="ed-bloco${ed.img?" com-capa":""}">${capaEd}<div class="ed-corpo">${linhas?"":semFormato}${sobreEd}${linhas?`<ul class="edicoes">${linhas}</ul>`:""}</div></div>`;
   };
   /* Mínimo por obra: capa simples, capa dura e Kindle. O que não temos confirmado é dito como tal. */
