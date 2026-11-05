@@ -10,11 +10,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   :root{
-    --paper:#1F1F20; --ink:#E6E7EA; --muted:#A3A8B0; --rule:#3A3B40;
-    --silver:#C9CDD4; --panel:#2A2B2F; --accent:#D6DAE0;
+    --paper:#E9EBEE; --ink:#1C1C1E; --muted:#585D66; --rule:#C3C8CF;
+    --panel:#D5D9DE; --accent:#3D424A; --band:#222224; --silver:#8E949D;
     --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
     --sans:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-    color-scheme:dark;
+    color-scheme:light;
   }
 
   *{box-sizing:border-box}
@@ -22,14 +22,16 @@
   body{
     background:var(--paper); color:var(--ink);
     font:400 16px/1.6 var(--sans);
-    padding-inline:max(16px, env(safe-area-inset-left,0px)) max(16px, env(safe-area-inset-right,0px));
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none}
-  .marca{display:block;width:100%;max-width:1000px;height:auto;margin:0 auto 8px}
-  .marca img{display:block;width:100%;height:auto;-webkit-mask-image:radial-gradient(ellipse 72% 80% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 80% at 50% 50%,#000 62%,transparent 100%)}
+  .faixa{background:var(--band);padding-block:clamp(24px,5vw,48px);padding-inline:max(16px, env(safe-area-inset-left,0px)) max(16px, env(safe-area-inset-right,0px));}
+  .faixa .marca{max-width:1000px;margin:0 auto}
+  .marca img{display:block;width:100%;height:auto}
+  .faixa .marca img{-webkit-mask-image:none;mask-image:none}
   :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
   main{max-width:1200px;margin:0 auto;padding-block:clamp(40px,8vw,96px) 72px}
+  main{padding-inline:max(16px, env(safe-area-inset-left,0px)) max(16px, env(safe-area-inset-right,0px));}
 
   /* Cabeçalho */
   .intro{display:grid;gap:20px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;padding-bottom:clamp(32px,5vw,56px);border-bottom:1px solid var(--rule)}
@@ -51,9 +53,9 @@
   .grid{display:grid;gap:40px 24px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
   .obra{display:flex;flex-direction:column;gap:10px;min-width:0}
   .capa{display:block;aspect-ratio:2/3;background:var(--panel);border-radius:2px;overflow:hidden;position:relative}
-  .capa img{display:block;width:100%;height:100%;object-fit:cover}
+  .capa img{display:block;width:100%;height:100%;object-fit:contain}
   .capa.prov{
-    display:flex;flex-direction:column;justify-content:space-between;padding:18px;color:var(--ink);background:var(--panel);border-top:2px solid var(--silver);
+    display:flex;flex-direction:column;justify-content:space-between;padding:18px;color:#E6E7EA;background:var(--band);border-top:2px solid var(--silver);
   }
   .capa.prov .t{font-family:var(--serif);font-size:23px;line-height:1.05;text-wrap:balance}
   .capa.prov .a{font-size:12px;opacity:.85}
@@ -84,8 +86,8 @@
 </style>
 </head>
 <body>
+<div class="faixa"><div class="marca"><img src="assets/cabecalho.webp" width="1600" height="640" alt="A CIDADELA, selo de prata com o texto Filosofia e estratégia para a vida"></div></div>
 <main>
-<div class="marca"><img src="assets/cabecalho.webp" width="1600" height="640" alt="A CIDADELA, selo de prata com o texto Filosofia e estratégia para a vida"></div>
 <header class="intro">
   <h1>Quarenta e cinco obras para pensar por conta própria</h1>
   <p>Filosofia, política e sociologia, da Antiguidade ao Brasil. Cada indicação de edição é conferida antes de aparecer aqui, e a página de cada obra mostra como a tradução foi feita.</p>
