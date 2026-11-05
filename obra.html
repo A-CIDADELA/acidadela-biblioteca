@@ -66,6 +66,7 @@
   .compra{display:inline-block;padding:6px 11px;background:var(--ink);color:#F4F5F7;border-radius:2px;font-size:13px;font-weight:600;letter-spacing:.01em;white-space:nowrap;transition:background .15s}
   .compra:hover{background:var(--accent)}
   .vazio{font-size:16px;color:var(--muted);margin:0;padding-block:18px;border-bottom:1px solid var(--rule)}
+  .nao-temos{color:var(--muted);font-style:italic}
   .sem-edicao{margin:0;padding-block:18px;border-bottom:1px solid var(--rule);font-size:16px}
 
   .como{display:grid;gap:12px;margin:0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
@@ -153,9 +154,15 @@ function renderObra(){
     const capaEd = ed.img ? `<div class="ed-capa"><img src="${esc(ed.img)}" alt="Capa da edição ${esc(ed.nome||"")} de ${esc(o.t)}" loading="lazy"></div>` : "";
     return `${titulo}<div class="ed-bloco${ed.img?" com-capa":""}">${capaEd}<div class="ed-corpo">${linhas?"":semFormato}${sobreEd}${linhas?`<ul class="edicoes">${linhas}</ul>`:""}</div></div>`;
   };
-  const edicoes = o.edicoes.length
-    ? o.edicoes.map(blocoEdicao).join("")
-    : `<p class="vazio">Edição em conferência. Nenhum link de compra aparece até a edição ser conferida.</p>`;
+  /* Mínimo por obra: capa simples, capa dura e Kindle. O que não temos confirmado é dito como tal. */
+  const REQUERIDOS = ["simples","dura","kindle"];
+  const presentes = new Set(o.edicoes.flatMap(e=>Object.keys(e.links||{})));
+  const faltam = REQUERIDOS.filter(k=>!presentes.has(k));
+  const rotulo = k => FORMATOS.find(f=>f.k===k).rotulo;
+  const semDados = faltam.length
+    ? `<ul class="edicoes">${faltam.map(k=>`<li><span class="formato">${esc(rotulo(k))}</span><p class="ed nao-temos">Não temos os detalhes desta edição ainda. Nenhum link aparece até ser conferida.</p><span></span></li>`).join("")}</ul>`
+    : "";
+  const edicoes = (o.edicoes.length ? o.edicoes.map(blocoEdicao).join("") : "") + semDados;
 
   const leitura = o.leitura
     ? `<div class="secao"><h2>Leitura gratuita</h2><p class="leitura">${esc(o.leitura)}.</p></div>`
