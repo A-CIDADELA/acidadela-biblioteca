@@ -441,27 +441,22 @@ Object.assign(EXTRA_OBRAS, {
   }
 });
 
-/* Recorte de capas em perspectiva (mockup 3D com sombra). Cada janela
-   [largura original, altura original, x0, y0, x1, y1] delimita só a capa frontal,
-   sem lombada e sem sombra, com proporção 2:3. Chave: URL da imagem.
-   Imagens sem entrada aqui são exibidas inteiras, como antes. */
-const RECORTES = {
-  "https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg": [1202,1500,325,112,1155,1357],
-  "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg": [1150,1422,248,100,1053,1308],
-  "https://m.media-amazon.com/images/I/71hpuks2EGL._SL1500_.jpg": [1200,1200,216,60,888,1068],
-  "https://m.media-amazon.com/images/I/71LTFQOXbRL._SL1500_.jpg": [1200,1200,216,72,888,1080],
-  "https://m.media-amazon.com/images/I/814j+g6I-WL._SL1500_.jpg": [1224,1500,290,112,1100,1327],
-  "https://m.media-amazon.com/images/I/511WVt529fL._SL1500_.jpg": [972,1200,240,130,884,1096],
-  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg": [1188,1500,215,150,880,1148]
-};
+/* Capas que são mockup (livro em perspectiva, com sombra). Ficam num quadro de
+   fundo branco, com a imagem inteira e centralizada. As demais aparecem sem quadro.
+   Chave: URL da imagem. */
+const MOCKUPS = new Set([
+  "https://m.media-amazon.com/images/I/71p9NTtFrzL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/61-2MFPstpL._SL1422_.jpg",
+  "https://m.media-amazon.com/images/I/71hpuks2EGL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/71LTFQOXbRL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/814j+g6I-WL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/511WVt529fL._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/71k2qwN6brL._SL1500_.jpg"
+]);
 
-/* Devolve o estilo inline que aplica o recorte acima (ou vazio, se não houver recorte). */
-function recorteStyle(src){
-  const r = RECORTES[src];
-  if(!r) return "";
-  const [nw,nh,x0,y0,x1,y1] = r;
-  const ww = x1-x0, hh = y1-y0;
-  return `position:absolute;width:${(100*nw/ww).toFixed(3)}%;height:${(100*nh/hh).toFixed(3)}%;left:${(-100*x0/ww).toFixed(3)}%;top:${(-100*y0/hh).toFixed(3)}%;max-width:none`;
+/* Classe extra do quadro da capa: " quadro" para mockup, vazio para as demais. */
+function classeCapa(src){
+  return MOCKUPS.has(src) ? " quadro" : "";
 }
 
 /* Aplica EXTRA_OBRAS: texto da obra e edições. Agrupa por editora e páginas,

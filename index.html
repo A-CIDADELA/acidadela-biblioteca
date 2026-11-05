@@ -52,7 +52,9 @@
 
   .grid{display:grid;gap:40px 24px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
   .obra{display:flex;flex-direction:column;gap:10px;min-width:0}
-  .capa{display:block;aspect-ratio:2/3;border-radius:2px;overflow:hidden;position:relative;background:#fff}
+  .capa{display:block;aspect-ratio:2/3;border-radius:2px;overflow:hidden;position:relative}
+  .capa.quadro{background:#fff}
+  .capa.quadro img{padding:7%;box-sizing:border-box}
   .capa img{display:block;width:100%;height:100%;object-fit:contain;object-position:50% 50%}
   .capa.prov{
     display:flex;flex-direction:column;justify-content:space-between;padding:18px;color:#E6E7EA;background:var(--band);border-top:2px solid var(--silver);
@@ -134,7 +136,7 @@ function cardHTML(o){
   const destino = `obra.html?id=${encodeURIComponent(o.slug)}`;
   const capaImg = o.img || (o.edicoes[0] && o.edicoes[0].img) || "";
   const capa = capaImg
-    ? `<a class="capa" href="${destino}" aria-label="Ver ${esc(o.t)}"><img src="${esc(capaImg)}" alt="Capa de ${esc(o.t)}" loading="lazy" style="${recorteStyle(capaImg)}"></a>`
+    ? `<a class="capa${classeCapa(capaImg)}" href="${destino}" aria-label="Ver ${esc(o.t)}"><img src="${esc(capaImg)}" alt="Capa de ${esc(o.t)}" loading="lazy"></a>`
     : `<a class="capa prov" style="--c:${era.cor}" href="${destino}" aria-label="Ver ${esc(o.t)}"><span class="e">${esc(era.nome)}</span><span><span class="t" style="display:block">${esc(o.t)}</span><span class="a" style="display:block;margin-top:6px">${esc(o.a)}</span></span></a>`;
   const principal = o.edicoes[0];
   const status = principal
