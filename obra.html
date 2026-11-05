@@ -74,6 +74,8 @@
   .texto{font-size:17px;line-height:1.65;margin:0 0 12px;max-width:60ch}
   .sobre{margin-top:20px}
   .sobre .texto{font-size:16px;color:var(--muted)}
+  .sobre-larga{margin-top:clamp(24px,5vw,64px)}
+  .sobre-larga .texto{max-width:none}
   h2.sub{font-size:22px;margin-top:28px}
   .ed-linha{margin:14px 0 0;font-size:16px}
   .ed-bloco{margin-top:12px}
@@ -127,7 +129,11 @@ function renderObra(){
     : `<div class="capa prov" style="--c:${era.cor}"><span class="e">${esc(era.nome)}</span><div><div class="t">${esc(o.t)}</div><div class="a">${esc(o.a)}</div></div></div>`;
 
   const paragrafos = t => t.split("\n\n").map(p=>`<p class="texto">${esc(p)}</p>`).join("");
-  const sobreObraHTML = o.sobre ? `<div class="sobre">${paragrafos(o.sobre.obra)}</div>` : "";
+  const partesObra = o.sobre ? o.sobre.obra.split("\n\n") : [];
+  const ao_lado = partesObra.slice(0,2).join("\n\n");
+  const abaixo = partesObra.slice(2).join("\n\n");
+  const sobreObraHTML = ao_lado ? `<div class="sobre">${paragrafos(ao_lado)}</div>` : "";
+  const sobreLargaHTML = abaixo ? `<div class="sobre-larga">${paragrafos(abaixo)}</div>` : "";
   const blocoEdicao = ed => {
     const formatos = FORMATOS.filter(f=>ed.links && ed.links[f.k]);
     const titulo = ed.nome ? `<h2 class="sub">${esc(ed.nome)}</h2>` : "";
@@ -160,6 +166,7 @@ function renderObra(){
         ${sobreObraHTML}
       </div>
     </div>
+    ${sobreLargaHTML}
     <section class="secao">
       <h2>Edições</h2>
       ${edicoes}
