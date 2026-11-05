@@ -35,7 +35,17 @@ const OBRAS = [
      {nome:"Edipro", sym:"",
       ed:"Edipro, 2019, edição de bolso. Tradução de Edson Bini. Origem da tradução e notas em conferência.",
       sobre:"Edição de bolso da Edipro (2019), com 80 páginas. Tradução de Edson Bini. A indicação de origem da tradução e a presença de notas ainda estão em conferência.",
-      links:{bolso:"https://www.amazon.com.br/dp/8552100665?tag=acidadela-20"}}
+      links:{bolso:"https://www.amazon.com.br/dp/8552100665?tag=acidadela-20"}},
+     {nome:"Vozes de Bolso", sym:"",
+      img:"https://m.media-amazon.com/images/I/51k7oEE0GZL._SL1000_.jpg",
+      ed:"Vozes de Bolso, 1ª edição, 56 páginas. Tradução de Márcio Mauá Chaves Ferreira. Origem da tradução em conferência.",
+      sobre:"Edição de bolso da Vozes de Bolso, com 56 páginas e tradução de Márcio Mauá Chaves Ferreira. A língua de origem ainda está em conferência.",
+      links:{simples:"https://www.amazon.com.br/dp/8532664377?tag=acidadela-20"}},
+     {nome:"Nova Fronteira", sym:"",
+      img:"https://m.media-amazon.com/images/I/91YGPexFSML._SL1500_.jpg",
+      ed:"Nova Fronteira, 133 páginas. Tradução de Maria Lacerda de Moura, com tradução e apêndice de Gisele Garcia. Origem da tradução em conferência.",
+      sobre:"Edição digital da Nova Fronteira, na coleção Clássicos para Todos. A língua de origem ainda está em conferência.",
+      links:{kindle:"https://www.amazon.com.br/dp/B07XRJ8CY5?tag=acidadela-20"}}
    ]},
   {t:"Ética a Nicômaco", a:"Aristóteles (384–322 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega"},
   {t:"Política", a:"Aristóteles (384–322 a.C.)", e:"antig", s:"PD", esc:"Filosofia grega"},
