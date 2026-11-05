@@ -37,7 +37,9 @@
   .voltar a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}
   .voltar a:hover{color:var(--ink)}
 
-  .topo{display:grid;gap:clamp(24px,5vw,64px);grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:start;margin-top:clamp(28px,5vw,56px)}
+  .topo{display:flow-root;margin-top:clamp(28px,5vw,56px)}
+  .topo .capa{float:left;width:300px;margin:0 clamp(24px,5vw,64px) clamp(24px,5vw,64px) 0}
+  .topo .texto{max-width:none}
   .capa{aspect-ratio:2/3;background:#FFFFFF;border-radius:2px;overflow:hidden;max-width:100%}
   .capa img{display:block;width:100%;height:100%;object-fit:contain;transform:translateX(-4%)}
   .capa.prov{
@@ -74,8 +76,6 @@
   .texto{font-size:17px;line-height:1.65;margin:0 0 12px;max-width:60ch}
   .sobre{margin-top:20px}
   .sobre .texto{font-size:16px;color:var(--muted)}
-  .sobre-larga{margin-top:clamp(24px,5vw,64px)}
-  .sobre-larga .texto{max-width:none}
   h2.sub{font-size:22px;margin-top:28px}
   .ed-linha{margin:14px 0 0;font-size:16px}
   .ed-bloco{margin-top:12px}
@@ -88,7 +88,7 @@
   footer p{margin:0}
 
   @media (max-width:720px){
-    .topo{grid-template-columns:1fr}
+    .topo .capa{float:none;width:100%;max-width:240px;margin:0 0 24px}
     .capa{max-width:240px}
     .edicoes li{grid-template-columns:1fr;gap:4px}
     .ed-bloco.com-capa{grid-template-columns:1fr}
@@ -130,8 +130,8 @@ function renderObra(){
 
   const paragrafos = t => t.split("\n\n").map(p=>`<p class="texto">${esc(p)}</p>`).join("");
   const partesObra = o.sobre ? o.sobre.obra.split("\n\n") : [];
-  const ao_lado = partesObra.slice(0,2).join("\n\n");
-  const abaixo = partesObra.slice(2).join("\n\n");
+  const ao_lado = partesObra.join("\n\n");
+  const abaixo = "";
   const sobreObraHTML = ao_lado ? `<div class="sobre">${paragrafos(ao_lado)}</div>` : "";
   const sobreLargaHTML = abaixo ? `<div class="sobre-larga">${paragrafos(abaixo)}</div>` : "";
   const blocoEdicao = ed => {
