@@ -260,6 +260,186 @@ Object.assign(EXTRA_OBRAS, {
   }
 });
 
+Object.assign(EXTRA_OBRAS, {
+  "Do Espírito das Leis": {
+    sobre: "Do Espírito das Leis, de Montesquieu, foi publicado em 1748 e examina como as leis se relacionam com o tipo de governo, com o clima, a religião, os costumes e a economia. Montesquieu distingue três formas de governo, república, monarquia e despotismo, e associa a cada uma um princípio que a sustenta: virtude, honra e medo, respectivamente.\n\nSua contribuição mais conhecida é a defesa da separação e do equilíbrio entre os poderes, como garantia contra o abuso. O livro vale a leitura porque mostra que a liberdade depende de instituições que limitem quem governa, e que as leis precisam ser pensadas à luz das condições reais de cada povo.",
+    picks: [
+      ["simples","6556601187","7182KzKdiuL","Edipro",768,"","Segunda edição na ficha. Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["dura","8544000355","81e1ziiKRhL","Martin Claret",883,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Cândido": {
+    sobre: "Cândido, de Voltaire, foi publicado em 1759 como uma sátira. O jovem Cândido aprende com o mestre Pangloss que vivemos no melhor dos mundos possíveis, e a partir daí sua vida é uma sequência de desastres: guerras, naufrágios, perseguições religiosas e violências de todo tipo, em várias partes da Europa e da América.\n\nA ironia atinge o otimismo filosófico e a crença de que todo mal tem uma razão superior. O fim da história, com a recomendação de cultivar o próprio jardim, sugere uma resposta prática em vez de metafísica. Vale a leitura por ser curto, divertido e ainda útil para desconfiar de explicações que justificam qualquer sofrimento.",
+    picks: [
+      ["simples","8572839852","71KGubqsJ9L","Edipro",112,"","Título na ficha: Cândido ou O Otimismo. Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["dura","6586490448","71FCVFVJ2HL","Editora Antofágica",256,"","Título na ficha: Cândido, ou o Otimismo. Tradutor não identificado na ficha."]
+    ]
+  },
+  "O que é esclarecimento?": {
+    sobre: "O que é esclarecimento?, de Immanuel Kant, é um ensaio de 1784 que responde à pergunta do título. Para Kant, o esclarecimento é a saída do ser humano de uma menoridade que ele mesmo causa, isto é, a incapacidade de usar o próprio entendimento sem a orientação de outro. A divisa é a frase latina sapere aude, ouse saber.\n\nO texto distingue o uso público da razão, que deve ser livre, do uso privado, que pode ser submetido a regras. É um ensaio curto e fundamental para entender o que o Iluminismo queria: não apenas acumular conhecimento, mas formar pessoas capazes de pensar sem tutela.",
+    picks: [
+      ["kindle","B0BF7533W1","61k9G0ctHgL","Penguin-Companhia",118,"","Título na ficha: Resposta à pergunta: o que é esclarecimento. Tradutor não identificado na ficha."]
+    ]
+  },
+  "Reflexões sobre a Revolução em França": {
+    sobre: "Reflexões sobre a Revolução em França, de Edmund Burke, foi publicado em 1790, poucos meses depois do início da Revolução, e se tornou a base do pensamento conservador. Burke critica a ideia de que a sociedade possa ser reconstruída a partir de princípios abstratos e defende que as instituições são fruto de uma experiência acumulada ao longo de gerações.\n\nO livro não é uma defesa do privilégio por si só: Burke condena abusos e reconhece limites do antigo regime. O que propõe é cautela diante de reformas radicais que rompem com a herança. Vale a leitura para entender uma das grandes discussões entre tradição e mudança, que continua presente no debate político.",
+    picks: [
+      ["simples","8572838627","81wbLGW8rEL","Edipro",256,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["kindle","B0CBXQFVSH","71Ji87CJfOL","Vide Editorial",338,"","Versão digital da Vide Editorial, 4ª edição. Tradutor não identificado na ficha."]
+    ]
+  },
+  "A Riqueza das Nações": {
+    sobre: "A Riqueza das Nações, de Adam Smith, foi publicado em 1776 e é um dos textos fundadores da economia moderna. Smith pergunta de onde vem a riqueza de um país e responde que ela depende da divisão do trabalho, da acumulação de capital e da extensão do mercado. Explica como os preços naturais se formam, critica os monopólios e o mercantilismo e discute o papel das leis e dos impostos.\n\nA obra é mais rica do que a caricatura que se faz dela. Smith também analisa os efeitos morais do trabalho repetitivo e a importância de instituições justas. Vale a leitura para entender a origem das ideias econômicas com que ainda se discute mercado e Estado.",
+    picks: [
+      ["simples","8595071853","61YRMt79qlL","Vide Editorial",796,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["dura","6556600423","814j+g6I-WL","Edipro",928,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "A Lei": {
+    sobre: "A Lei, de Frédéric Bastiat, foi publicada em 1850 como panfleto. Bastiat parte de uma pergunta prática: a que serve a lei? Sua resposta é que ela deve proteger o direito de cada um à vida, à liberdade e à propriedade. Quando a lei passa a retirar de uma pessoa o que é dela para dar a outra, Bastiat chama isso de saque legal, e argumenta que esse uso corrompe a própria sociedade.\n\nO texto é curto e claro, e oferece um critério simples para avaliar leis e políticas: perguntar quem ganha, quem perde e se a medida apenas torna visível o que já é de todos. Vale a leitura para quem quer discutir o papel do Estado com um argumento direto.",
+    picks: [
+      ["simples","6556600873","71ZxkRyP53L","Edipro",112,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["dura","6587200184","61IWKwzijIL","Folha",96,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "A Democracia na América": {
+    sobre: "A Democracia na América, de Alexis de Tocqueville, foi publicado em duas partes, em 1835 e 1840, depois de uma viagem do autor aos Estados Unidos. Tocqueville observa a igualdade de condições, a vida de associações, o papel da religião e da imprensa e a descentralização local, e a partir disso pensa os riscos próprios da democracia.\n\nO mais citado de seus alertas é a tirania da maioria: um povo igual pode conformar-se a uma opinião dominante e sufocar a divergência sem recorrer à força. O livro vale a leitura porque descreve um regime democrático com atenção aos costumes, e não só às leis.",
+    picks: [
+      ["simples","8552100754","71SLqR0Og1L","Edipro",768,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Sobre a Liberdade": {
+    sobre: "Sobre a Liberdade, de John Stuart Mill, foi publicado em 1859. O argumento central é o princípio do dano: a sociedade só pode limitar a liberdade de alguém para impedir que ele cause dano a outros, e não para impor o que considera melhor para essa pessoa. Mill defende a liberdade de pensamento, de expressão e de viver segundo a própria escolha, desde que não se prejudique terceiros.\n\nO livro também analisa a tirania da opinião pública, que pode pressionar pela conformidade sem precisar de leis. Vale a leitura por oferecer um critério claro para discutir limites da liberdade, um tema que continua atual em debates sobre expressão e intervenção do Estado.",
+    picks: [
+      ["simples","8525434191","71FHYdhM7aL","L&PM",176,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","8595070369","81mZkl7gHkL","Vide Editorial",204,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  }
+});
+
+Object.assign(EXTRA_OBRAS, {
+  "Desobediência Civil": {
+    sobre: "Desobediência Civil, de Henry David Thoreau, foi publicado em 1849, depois de uma noite na prisão por ter se recusado a pagar um imposto. Thoreau protestava contra a escravidão e contra a guerra com o México. Seu argumento é que a consciência individual não deve se submeter a leis injustas, e que o Estado, quando serve à injustiça, deixa de merecer obediência automática.\n\nO texto é a origem de uma longa tradição de resistência pacífica e de desobediência consciente. Vale a leitura para pensar quando a recusa pessoal a uma norma é legítima e quais são os custos de aceitá-la sem questionar.",
+    picks: [
+      ["simples","8572839682","712pKy63rsL","Edipro",80,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["bolso","8525406147","913HuHgvgjL","L&PM",96,"","Edição de bolso. Tradutor não identificado na ficha."]
+    ]
+  },
+  "A Arte de Ter Razão": {
+    sobre: "A Arte de Ter Razão, de Arthur Schopenhauer, foi publicada postumamente, em 1864. São trinta e oito estratagemas, isto é, truques retóricos que as pessoas usam em discussões para parecer vencedoras, mesmo quando não têm razão. Schopenhauer não ensina a vencer com honestidade; ensina a reconhecer as manobras que os outros usam.\n\nO texto é provocador e tem um tom cínico que o próprio autor assume. Vale a leitura porque treina a percepção de falácias e de pressões retóricas, útil em qualquer debate público ou privado.",
+    picks: [
+      ["simples","855210041X","61LkyHUdxyL","Edipro",80,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["bolso","8532655807","91yZvJ40FJL","Vozes de Bolso",64,"","Edição de bolso. Tradutor não identificado na ficha."]
+    ]
+  },
+  "Fenomenologia do Espírito": {
+    sobre: "A Fenomenologia do Espírito, de Hegel, foi publicada em 1807 e acompanha a trajetória da consciência desde a percepção mais simples até o saber absoluto. Cada forma de consciência revela a insuficiência de si mesma e leva à seguinte, num movimento em que a verdade aparece como processo, e não como algo dado de antemão. A passagem entre senhor e escravo é uma das mais conhecidas.\n\nÉ um livro difícil, com linguagem densa e trechos que exigem paciência. Vale a leitura para quem quer entender a origem de boa parte da filosofia posterior sobre liberdade, reconhecimento e história, e está disposto a ler com apoio de um guia.",
+    picks: [
+      ["simples","8532627692","51eB56zzgCL","Editora Vozes",552,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Manifesto do Partido Comunista": {
+    sobre: "O Manifesto do Partido Comunista, escrito por Karl Marx e Friedrich Engels, foi publicado em 1848. Parte de uma tese: a história das sociedades é a história da luta de classes. Descreve o papel da burguesia na transformação da economia, a situação do proletariado e a crítica a outras correntes socialistas da época, e termina com um programa de medidas.\n\nTexto curto e de grande alcance, foi lido e usado de muitas maneiras ao longo do século XX. Vale a leitura para conhecer as origens de uma tradição política inteira e para avaliar, com o próprio texto nas mãos, as análises que faz do capitalismo de seu tempo.",
+    picks: [
+      ["simples","857283902X","81-4tDSbzFL","Edipro",112,"","Edição de bolso, texto integral. Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","8563560360","81hlatl7w+S","Penguin-Companhia",112,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Temor e Tremor": {
+    sobre: "Temor e Tremor, de Søren Kierkegaard, foi publicado em 1843 sob o pseudônimo de Johannes de Silentio. O livro toma como ponto de partida o episódio bíblico em que Abraão se dispõe a sacrificar Isaac. A partir dele, o autor opõe a moral universal, que pode justificar o sacrifício com regras gerais, à fé, que exige uma relação pessoal e inexplicável com Deus.\n\nO texto é um dos clássicos da filosofia da religião e da ética, com uma prosa que se faz de perguntas. Vale a leitura para pensar os limites da razão e da moral diante de uma decisão que não pode ser justificada por outros.",
+    picks: []
+  },
+  "Genealogia da Moral": {
+    sobre: "A Genealogia da Moral, de Friedrich Nietzsche, foi publicada em 1887, em três ensaios que investigam a origem dos valores morais. Nietzsche distingue a moral dos senhores, que chama de bom e ruim a partir da própria força, da moral dos escravos, que nasce do ressentimento e chama de mau o que é poderoso. Analisa também a culpa, a consciência e os ideais ascéticos.\n\nO livro é provocador e desconfortável, porque questiona a própria origem da moral que costumamos tomar como natural. Vale a leitura para examinar como os valores se formam historicamente e para avaliar as conclusões do autor com cuidado, já que ele mesmo as apresenta como hipóteses.",
+    picks: [
+      ["simples","852543678X","71HMLWZu-HL","L&PM",192,"","Título na ficha: Sobre a Genealogia da Moral. Tradutor não identificado na ficha."],
+      ["bolso","8535914560","81Yf58pV9JL","Companhia de Bolso",176,"","Edição de bolso. Tradutor não identificado na ficha."]
+    ]
+  },
+  "Psicologia das Multidões": {
+    sobre: "Psicologia das Multidões, de Gustave Le Bon, foi publicado em 1895 e procura explicar como indivíduos se comportam quando estão reunidos. Le Bon sustenta que, na multidão, a razão se enfraquece, as emoções se propagam por contágio e as pessoas se tornam mais sugestionáveis, e que líderes hábeis podem explorar essa dinâmica.\n\nO livro teve enorme influência e foi usado por autores e movimentos de tendências muito diferentes. Vale a leitura com espírito crítico: as observações de Le Bon sobre a mobilização coletiva são úteis, mas suas generalizações e seu desprezo pelo povo devem ser avaliados com cuidado.",
+    picks: [
+      ["simples","8546902410","51IfZYXsJjL","WMF Martins Fontes",224,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Ciência e Política como Vocação": {
+    sobre: "Ciência e Política como Vocação são duas conferências de Max Weber, proferidas em 1917 e 1919. Na segunda, Weber distingue a ética da convicção, que age segundo princípios, da ética da responsabilidade, que pesa as consequências da ação. Descreve o político como alguém que lida com a violência legítima do Estado e com os limites do possível.\n\nSão textos curtos e de grande atualidade para quem discute poder, ética e responsabilidade pública. Vale a leitura porque obriga a separar o que é boa intenção do que é boa decisão, e a assumir as consequências do que se defende.",
+    picks: [
+      ["simples","8544001009","81PkeV02dhL","Martin Claret",141,"","Título na ficha: Ciência e política: duas vocações. Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","8532664466","51nMYW8k1FL","Editora Vozes",120,"","Título na ficha: Política como vocação e ofício. Tradutor não identificado na ficha."]
+    ]
+  }
+});
+
+Object.assign(EXTRA_OBRAS, {
+  "Ação Humana": {
+    sobre: "Ação Humana, de Ludwig von Mises, foi publicado em 1949 e é um tratado de economia construído a partir de um ponto de partida: toda ação humana é a escolha de meios para fins. Mises desenvolve a partir disso princípios sobre troca, moeda, preços e cálculo econômico, e argumenta contra a intervenção do Estado na economia.\n\nÉ uma das exposições mais sistemáticas da escola liberal austríaca e seu método é dedutivo: as conclusões seguem da premissa, e não de dados. Vale a leitura para confrontar um argumento completo a favor do mercado, mesmo para quem discorde de suas conclusões.",
+    picks: [
+      ["dura","6550520703","61MxLc9JQWL","LVM Editora",1020,"","Edição de 4ª ed. na ficha. Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "O Caminho da Servidão": {
+    sobre: "O Caminho da Servidão, de Friedrich Hayek, foi publicado em 1944, durante a Segunda Guerra. Hayek argumenta que o planejamento central da economia, mesmo com boas intenções, tende a concentrar poder e a destruir as garantias da liberdade individual. Para ele, a passagem do planejamento econômico ao controle político não é um acidente, mas uma consequência lógica.\n\nO livro defende o Estado de direito e a competição de mercado como proteções contra essa trajetória. Vale a leitura para discutir até onde a intervenção do Estado é compatível com a liberdade e para examinar um dos argumentos liberais mais influentes do século XX.",
+    picks: [
+      ["dura","6587200079","613qjAgCtOL","Folha",256,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","6586029724","61XgkB3IDBL","LVM Editora",344,"","Segunda edição, conforme a ficha. Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["kindle","B078JC2BS5","812oa3zkGFL","LVM Editora",234,"","Versão digital da LVM. Tradutor não identificado na ficha."]
+    ]
+  },
+  "Origens do Totalitarismo": {
+    sobre: "As Origens do Totalitarismo, de Hannah Arendt, foi publicado em 1951 e analisa três elementos que, segundo a autora, tornaram possível o totalitarismo: o antissemitismo, o imperialismo e a formação de massas atomizadas, sem laços sociais sólidos. Arendt examina o nazismo e o stalinismo como fenômenos novos, e não apenas como formas extremas de autoritarismo conhecido.\n\nO livro é denso e longo, mas indispensável para quem quer entender como ideologias e o terror transformam a política. Vale a leitura para pensar as condições que tornam uma sociedade vulnerável à propaganda e à destruição da pluralidade.",
+    picks: [
+      ["bolso","8535922040","91r9o0I0EcL","Companhia de Bolso",832,"","Edição de bolso. Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "1984": {
+    sobre: "1984, de George Orwell, foi publicado em 1949 e descreve um regime totalitário em que o Partido controla a verdade ao controlar a linguagem, a memória e a história. O protagonista, Winston Smith, trabalha reescrevendo registros para que o passado acompanhe as mudanças de posição do Partido, e sua rebeldia começa com a vontade de pensar por conta própria.\n\nO romance é conhecido pelos conceitos de vigilância constante e de duplipensar, mas o que segue útil é a análise de como o poder se torna incontestável quando consegue definir o que é verdadeiro. Vale a leitura para perceber como a manipulação da linguagem e da informação pode atuar mesmo em sociedades que se dizem livres.",
+    picks: [
+      ["dura","6584956504","61hAKXNgRpL","Editora Garnier",224,"","Edição de luxo, conforme a ficha. Tradutor não identificado na ficha."],
+      ["simples","8535914846","819js3EQwbL","Companhia das Letras",416,"","Tradução de Alexandre Hubner, conforme a ficha. A origem da tradução não foi conferida."],
+      ["simples","6555522267","61t0bwt1s3L","Principis",336,"◆","Texto integral traduzido do original em inglês, conforme a ficha da edição."]
+    ]
+  },
+  "Admirável Mundo Novo": {
+    sobre: "Admirável Mundo Novo, de Aldous Huxley, foi publicado em 1932 e imagina uma sociedade estável, sem guerra nem miséria, em que o sofrimento foi eliminado por meio de condicionamento, consumo e prazeres fáceis. As pessoas são felizes à maneira que o sistema define, e a liberdade individual se perdeu sem que ninguém precisasse ser violentamente reprimido.\n\nO livro é o complemento de 1984, de Orwell: enquanto um imagina o controle pela dor, o outro imagina o controle pelo conforto. Vale a leitura para pensar se uma sociedade pode ser confortável e, ainda assim, ter perdido algo essencial.",
+    picks: [
+      ["dura","6558301660","71k2qwN6brL","Biblioteca Azul",304,"","Edição de luxo, conforme a ficha. Tradutor não identificado na ficha."],
+      ["simples","8525056006","61hOp6UFvCL","Biblioteca Azul",312,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "A Sociedade Aberta e seus Inimigos": {
+    sobre: "A Sociedade Aberta e seus Inimigos, de Karl Popper, foi publicado em 1945, durante a guerra, e critica as filosofias que pretendem prever e planejar o curso inteiro da história. Popper analisa Platão, Hegel e Marx como exemplos do que chama de historicismo, e defende uma sociedade aberta, em que as instituições permitam criticar e corrigir erros sem violência.\n\nO livro é extenso e polêmico, e algumas leituras de filósofos específicos são contestadas. Ainda assim, a ideia de reforma gradual e de falibilismo continua central para o debate sobre democracia e planejamento social. Vale a leitura para discutir os limites da previsão histórica e o valor da crítica pública.",
+    picks: [
+      ["simples","9724416593","61FDFOFZx4L","Edições 70",320,"","Edição portuguesa, conforme a ficha. Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "O Ópio dos Intelectuais": {
+    sobre: "O Ópio dos Intelectuais, de Raymond Aron, foi publicado em 1955 e critica a atração que parte dos intelectuais franceses sentia pelo marxismo e por mitos revolucionários, mesmo diante de fatos que os contradiziam. Aron analisa essa adesão como uma forma de fé política que dispensa a verificação dos fatos.\n\nO texto é um exercício de responsabilidade intelectual: pede que quem pensa a política distinga o que quer ver do que realmente acontece. Vale a leitura para refletir sobre ideologia, crítica e o papel de quem opina publicamente sobre o mundo.",
+    picks: [
+      ["simples","8568493289","61-9ZEfGNCL","Três Estrelas",352,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Casa-Grande & Senzala": {
+    sobre: "Casa-Grande & Senzala, de Gilberto Freyre, foi publicado em 1933 e interpreta a formação da sociedade brasileira a partir da família patriarcal, da economia açucareira, da escravidão e da mistura de povos. Freyre destacou a presença do português, do africano e do indígena na vida cotidiana, e ficou conhecido pela tese de uma convivência relativamente harmoniosa entre senhores e escravizados.\n\nA interpretação foi amplamente discutida, e críticos apontam que ela minimiza a violência do sistema escravista. Vale a leitura justamente por isso: é um clássico que deve ser lido com atenção aos argumentos e às omissões, e que abriu caminho para pensar a cultura brasileira de forma detalhada.",
+    picks: [
+      ["dura","6556125350","716nl8qQOrL","Global Editora",981,"","Edição de 53ª edição, conforme a ficha. Tradutor não aplicável; obra em português."],
+      ["simples","8526008692","91pNT9IAIpL","Global Editora",728,"","Edição de 51ª edição, conforme a ficha."]
+    ]
+  },
+  "Raízes do Brasil": {
+    sobre: "Raízes do Brasil, de Sérgio Buarque de Holanda, foi publicado em 1936 e analisa as heranças que moldam a vida política e social brasileira. Entre elas estão o personalismo, a dificuldade de separar o público do privado e a tradição de relações pessoais que se sobrepõem às regras impessoais. O autor compara essa herança com a tradição protestante e a ética do trabalho.\n\nO livro é um dos principais esforços de entender o Brasil a partir de suas instituições e de seus hábitos. Vale a leitura para quem quer examinar por que as regras nem sempre valem para todos e como esse padrão se repete na vida pública.",
+    picks: [
+      ["simples","8535925481","91Tyq-pOAeL","Companhia das Letras",256,"","Tradutor não aplicável; obra em português."]
+    ]
+  },
+  "O Povo Brasileiro": {
+    sobre: "O Povo Brasileiro, de Darcy Ribeiro, foi publicado em 1995 e reúne as contribuições de indígenas, africanos e europeus na formação do povo brasileiro. Darcy analisa como a mistura desses povos, sob a dominação colonial e a escravidão, deu origem a uma população nova, e discute as desigualdades que atravessam essa história até o presente.\n\nO livro é uma síntese ampla e de linguagem acessível, escrita com a experiência de quem trabalhou com educação e com povos indígenas. Vale a leitura para entender a formação do país sob um ponto de vista que coloca a desigualdade no centro da análise.",
+    picks: [
+      ["simples","8526022253","A1lPmAv2hEL","Global Editora",368,"","Tradutor não aplicável; obra em português."]
+    ]
+  }
+});
+
 /* Aplica EXTRA_OBRAS: texto da obra e edições. Agrupa por editora e páginas,
    para que cada bloco de edição descreva uma única publicação. */
 OBRAS.forEach(o=>{
