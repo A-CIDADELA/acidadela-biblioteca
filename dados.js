@@ -131,3 +131,156 @@ function marcasHTML(sym){
   if(!sym) return "";
   return [...sym].filter(c=>MARCAS[c]).map(c=>`<span class="etiq ${MARCAS[c].classe}">${esc(MARCAS[c].rotulo)}</span>`).join("");
 }
+
+/* ---------- Obras com resumo e edições conferidas (lote a lote) ----------
+   picks: [formato, ASIN, código da capa, editora, páginas, marca (◆ ◇ ✎ ou ""), observação]
+   Só entram edições com dados verificados na página da Amazon.
+   Formato que não aparece aqui é mostrado como "Não temos os detalhes". */
+const EXTRA_OBRAS = {
+  "Ética a Nicômaco": {
+    sobre: "A Ética a Nicômaco é o tratado em que Aristóteles pergunta o que é uma vida boa e como alguém chega a ela. Ele parte de uma observação simples: todos querem a felicidade, mas divergem sobre o que ela seja. Para ele, a felicidade está numa atividade da alma conforme a virtude, e as virtudes se formam pelo hábito, pela escolha do meio-termo entre dois extremos e pela prática repetida.\n\nO livro também discute a amizade, o prazer, a justiça, a vontade e a sabedoria prática. O que o torna indispensável é o método: Aristóteles não impõe uma doutrina de cima, descreve como as pessoas realmente julgam o bem e testa as opiniões contra essas experiências. Ler a obra é aprender a pensar sobre conduta com precisão, sem fórmulas prontas.",
+    picks: [
+      ["simples","6555524065","61Sb1jtAmEL","Principis",256,"◆","Traduzida e adaptada do original em grego, conforme a ficha da edição."],
+      ["simples","8572838813","61XlfMWYClL","Edipro",392,"","Tradutor: Edson Bini. A origem da tradução não foi conferida na ficha."],
+      ["kindle","B084RDRNXD","81bIdruqFXL","Edipro",515,"","Versão digital da Edipro. A origem da tradução não foi conferida na ficha."],
+      ["simples","8532666418","61gtvVGNAPL","Editora Vozes",256,"","Tradutor: Vinícius Chichurra. A origem da tradução não foi conferida na ficha."]
+    ]
+  },
+  "Política": {
+    sobre: "A Política é o tratado em que Aristóteles examina a cidade, a comunidade que, segundo ele, nasce da família e da aldeia e existe para realizar a vida boa. Ele descreve o ser humano como animal político, ou seja, feito para viver na pólis, e a partir daí analisa as formas de governo: monarquia, aristocracia e governo constitucional, cada uma com sua forma corrompida.\n\nO livro também trata da escravidão, da propriedade, da educação e da melhor constituição possível. Vale a leitura porque fixa o vocabulário com que ainda se discute quem deve governar, com que finalidade e sob que limites. Aristóteles não escreve um manifesto; ele pesa vantagens e riscos de cada regime, e isso treina a comparação cuidadosa.",
+    picks: [
+      ["simples","8552100355","71uFX2qb9rL","Edipro",352,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Carta a Meneceu": {
+    sobre: "A Carta a Meneceu é o texto mais acessível de Epicuro: uma carta curta, escrita para um discípulo, que resume o caminho para uma vida feliz. Epicuro quer libertar o leitor de três medos que, segundo ele, estragam a existência: o medo dos deuses, o medo da morte e a incerteza sobre o que é realmente bom.\n\nA felicidade, para ele, é ausência de dor no corpo e de perturbação na alma, e se alcança com prudência, moderação dos desejos e amizade. A carta vale a leitura porque é breve e prática, e porque confronta a ideia comum de que prazer é excesso: Epicuro defende um prazer sóbrio e calmo, e explica por quê.",
+    picks: [
+      ["simples","6555523212","71vf32bzXIL","Principis",96,"◇","Traduzida do inglês, conforme a ficha da edição."]
+    ]
+  },
+  "O Manual": {
+    sobre: "O Manual, ou Enquirídio, é uma coletânea breve de conselhos de Epicteto, reunida por um discípulo, Arriano. Seu tema central é a distinção entre o que depende de nós (juízos, impulsos, escolhas) e o que não depende (corpo, bens, reputação, acontecimentos). Sofrimento, segundo ele, vem menos das coisas do que da opinião que fazemos delas.\n\nO texto é direto e prático: trata de como reagir a insultos, à perda, à doença e à morte, e de como agir com dignidade no dia a dia. Vale a leitura por ser curto e aplicável. Quem o lê de uma vez não extrai muito; quem o consulta em momentos de tensão encontra uma régua para separar o que pode mudar do que não pode.",
+    picks: [
+      ["simples","6556600334","61zkj3SiV4L","Edipro",96,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Meditações": {
+    sobre: "As Meditações são as anotações privadas de Marco Aurélio, imperador romano, escritas em grego durante campanhas militares. Não foram pensadas para publicação: são lembretes a si mesmo sobre como agir, como aceitar a passagem do tempo e como lidar com a raiva, a ingratidão e o cansaço.\n\nO fio condutor é a razão, que ordena o mundo e que cada pessoa pode seguir ao cumprir o seu dever. Por ser fragmentado, o livro se lê aos pedaços, e isso ajuda: cada passagem é uma pergunta dirigida ao leitor sobre a própria conduta. A obra tem valor porque mostra um homem com grande poder tentando não se deixar governar pelas paixões.",
+    picks: [
+      ["simples","8552100916","612B0id4gNL","Edipro",160,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["dura","6583970252","71hpuks2EGL","Atlantis Editora",128,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Cartas a Lucílio": {
+    sobre: "As Cartas a Lucílio são uma série de cento e vinte e quatro cartas que Sêneca escreveu a um amigo mais jovem, Lucílio, sobre temas como o uso do tempo, a amizade, o medo da morte e a vida filosófica como prática diária. Não são tratados sistemáticos: são conversas com um interlocutor concreto, com exemplos, anedotas e conselhos.\n\nO que torna a obra útil é justamente esse tom de companhia. Sêneca não se apresenta como mestre acima do leitor; mostra os próprios erros e as próprias dificuldades. A leitura de algumas cartas por vez ajuda a transformar a filosofia em hábito, e não apenas em teoria.",
+    picks: [
+      ["simples","8532652662","41JYZa5KSvL","Editora Vozes",160,"","Seleção de cartas, não a série completa. Tradutor não identificado na ficha."],
+      ["dura","9723105365","61PdqXBvHUL","Fundação Calouste Gulbenkian",722,"","Edição integral na ficha, 7ª edição. Tradutor não identificado na ficha."]
+    ]
+  },
+  "Dos Deveres": {
+    sobre: "Dos Deveres, de Cícero, é um tratado escrito como carta ao filho, que estudava em Atenas. Cícero examina o que é honesto e o que é útil, e como agir quando os dois parecem entrar em conflito. Divide o tema em virtudes como sabedoria, justiça, coragem e moderação, e aplica essas virtudes à vida pública e à vida privada.\n\nA obra vale a leitura porque enfrenta uma questão que continua atual: o que fazer quando a vantagem pessoal ou de um grupo exige algo que a consciência condena. Cícero não resolve tudo, mas oferece critérios claros para pensar esses casos e uma linguagem sóbria para discuti-los.",
+    picks: [
+      ["simples","8552100649","51+OqVlfw2L","Edipro",160,"✎","Edição com um estudo apresentado por Altino Arante."]
+    ]
+  },
+  "Confissões": {
+    sobre: "As Confissões são a narrativa que Agostinho escreveu sobre a própria vida até a conversão ao cristianismo, em forma de longa oração dirigida a Deus. O livro acompanha a juventude do autor, a busca por verdade em várias filosofias, a relação com a mãe, a vida em Milão e o momento em que decide se converter.\n\nAlém da autobiografia, a obra tem partes filosóficas importantes sobre a memória, o tempo e a inquietação do coração humano. Foi uma das primeiras grandes narrativas da experiência interior no Ocidente. Vale a leitura para quem quer ver como um pensador antigo descreve a própria mudança de vida com rigor e sem se poupar.",
+    picks: [
+      ["simples","8582850476","91hlMYSrG7L","Penguin-Companhia",416,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["dura","6583970171","71LTFQOXbRL","Atlantis Editora",240,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "A Cidade de Deus": {
+    sobre: "A Cidade de Deus foi escrita por Agostinho depois do saque de Roma em 410, quando muitos atribuíam a catástrofe ao abandono dos deuses antigos e à adoção do cristianismo. Agostinho responde a essa acusação e, ao fazê-lo, constrói uma visão ampla da história, dividida entre duas cidades: a terrena, movida pelo amor de si, e a celeste, movida pelo amor de Deus.\n\nO livro é extenso e desigual, e exige paciência. Ainda assim, é o ponto de partida de boa parte da filosofia política cristã e de discussões sobre o papel do Estado, da justiça e da paz. A leitura vale por mostrar como um argumento religioso se torna uma interpretação completa do poder e da história.",
+    picks: [
+      ["simples","8532600530","71FvmGwhFXL","Editora Vozes",440,"","Parte I (livros I a X), não a obra completa. Tradutor não identificado na ficha."],
+      ["dura","8534955662","51RUAzKoyRL","Paulus Editora",528,"","Volume 50/2 da coleção. Tradutor não identificado na ficha."]
+    ]
+  }
+};
+
+Object.assign(EXTRA_OBRAS, {
+  "Suma Teológica (trechos)": {
+    sobre: "A Suma Teológica foi escrita por Tomás de Aquino entre 1265 e 1274 para ensinar a doutrina cristã de modo ordenado. Cada tema é tratado como uma sequência de questões: primeiro se apresentam objeções contrárias à posição do autor, depois a resposta, e por fim a solução das objeções. Deus, a criação, o ser humano, as virtudes, a lei e a graça são examinados nessa forma.\n\nO método é o que mais interessa ao leitor de hoje: obriga a formular a objeção mais forte antes de responder. A obra também mostra o esforço de conciliar a filosofia de Aristóteles com a fé cristã. Os trechos disponíveis na Amazon são de edições parciais; a edição completa tem mais de seis mil páginas.",
+    picks: [
+      ["simples","8584910441","41jSYbLThPL","Ecclesiae",764,"","Volume 1 da obra. Tradutor não identificado na ficha."],
+      ["dura","6555042354","","Edições Loyola",6872,"","Coleção de 9 volumes, edição bilíngue, na ficha da editora. Capa ainda não conferida."]
+    ]
+  },
+  "A Cidade Virtuosa": {
+    sobre: "A Cidade Virtuosa, de Al-Farabi, filósofo do século X, descreve uma comunidade governada por um chefe que conhece a verdade e orienta os cidadãos para a felicidade. Al-Farabi compara a cidade a um corpo cujas partes cooperam para o bem do todo, e a partir dessa imagem classifica as cidades ignorantes, as corrompidas e as que apenas seguem o costume.\n\nO texto liga a política à filosofia de Platão e de Aristóteles e mostra como a tradição islâmica pensou a liderança e a virtude. Vale a leitura para quem quer comparar concepções de cidade ideal e entender que o debate sobre quem deve governar tem raízes muito além da Europa.",
+    picks: [
+      ["simples","6502369960","81vIC10NV9L","Editora Novens",188,"","Título na ficha: A Cidade Modelo. Tradutor não identificado na ficha."]
+    ]
+  },
+  "O Príncipe": {
+    sobre: "O Príncipe, de Maquiavel, foi escrito em 1513 e publicado postumamente, em 1532. É um manual para quem governa e quer conquistar e manter o poder. Maquiavel separa o que os homens fazem daquilo que deveriam fazer, examina o papel da fortuna e da virtude, discute se é melhor ser temido ou amado e analisa exemplos concretos, como o de César Bórgia.\n\nO livro é curto e desconfortável, porque descreve a política sem os enfeites morais que costumamos usar para falar dela. Vale a leitura por ser a base do pensamento político realista; ler com atenção também permite avaliar o custo dessa clareza e questionar as conclusões, em vez de aceitá-las ou rejeitá-las por reflexo.",
+    picks: [
+      ["simples","8563560034","81ff41K5JyL","Penguin-Companhia",176,"◆","Tradução direta do italiano, de Maurício Santana Dias, conforme a ficha da edição."],
+      ["dura","6584956199","812BaW4MacL","Editora Garnier",96,"","Edição de luxo, conforme a ficha. Tradutor não identificado na ficha."],
+      ["bolso","8572839046","81h4CdNxdgL","Edipro",96,"","Texto integral. Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Utopia": {
+    sobre: "Utopia, de Thomas More, foi publicada em 1516 como um diálogo narrado por um viajante, Rafael Hitlodeu, que descreve uma ilha onde a propriedade é comum, o trabalho é dividido entre todos, há tolerância religiosa e pouco dinheiro. O livro também critica a Inglaterra da época, com seus cercamentos de terras e as execuções por pequenos furtos.\n\nFoi a obra que deu nome ao gênero utópico. O que a torna instigante é a ambiguidade: More não diz claramente se aprova o que descreve, e essa dúvida faz parte do texto. A leitura vale para pensar como uma sociedade imagina o melhor e como essas imagens servem para criticar o presente.",
+    picks: [
+      ["simples","6556600563","511WVt529fL","Edipro",112,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","655552202X","61wluuheorL","Principis",144,"◇","Texto integral traduzido do inglês, conforme a ficha da edição."]
+    ]
+  },
+  "Discurso da Servidão Voluntária": {
+    sobre: "O Discurso da Servidão Voluntária, de Étienne de La Boétie, foi escrito ainda jovem e publicado em 1576. O autor se pergunta por que tantos povos aceitam ser governados por um só homem, quando bastaria deixar de obedecer. Sua resposta é que a tirania se sustenta pelo hábito, pelos costumes e pelas recompensas oferecidas a quem serve, e que a libertação começa quando as pessoas retiram o próprio consentimento.\n\nO texto é curto, direto e continua incomodando porque pergunta menos sobre o tirano do que sobre quem obedece. Vale a leitura para examinar que pequenas adesões tornam possível o poder que depois se queixa de si mesmo.",
+    picks: [
+      ["simples","8544001416","911IfbLSmIL","Martin Claret",121,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["bolso","8572839976","81HTlCC5S8L","Edipro",80,"","Edição de bolso. Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Leviatã": {
+    sobre: "O Leviatã, de Thomas Hobbes, foi publicado em 1651 e parte de uma hipótese: sem um poder comum, os homens vivem em estado de guerra de todos contra todos. Para escapar disso, cada pessoa abre mão de parte da liberdade e transfere a um soberano a autoridade para garantir a paz. O livro desenvolve essa ideia com um detalhamento sobre religião, leis e a natureza do poder.\n\nÉ um dos textos fundadores da teoria política moderna, e a figura do Estado como um corpo artificial que protege os súditos é uma de suas imagens mais conhecidas. Vale a leitura para pesar o preço da segurança e entender por que muitos pensadores posteriores partiram de Hobbes para defender ou criticar o poder absoluto.",
+    picks: [
+      ["simples","8572838961","71o7ylo4w7L","Edipro",616,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","8544000010","A194TdWrFJL","Martin Claret",544,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Segundo Tratado sobre o Governo": {
+    sobre: "O Segundo Tratado sobre o Governo, de John Locke, foi publicado em 1689. Locke sustenta que as pessoas nascem com direitos à vida, à liberdade e à propriedade, e que o governo existe para protegê-los com o consentimento dos governados. Quando o governo trai essa confiança, o povo tem direito de resistir e substituí-lo.\n\nO livro é a base de boa parte do constitucionalismo liberal. Sua discussão sobre propriedade, limites do poder e separação de funções continua presente nos debates atuais. Vale a leitura para examinar argumentos que justificam o governo e, ao mesmo tempo, dizem até onde ele pode ir.",
+    picks: [
+      ["simples","8572838414","81p1ncwbFlL","Edipro",176,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","8572324941","51aN6tT5uoL","Martin Claret",176,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  },
+  "Do Contrato Social": {
+    sobre: "Do Contrato Social, de Jean-Jacques Rousseau, foi publicado em 1762. A pergunta do livro é como formar uma sociedade em que as pessoas continuem livres enquanto obedecem às leis. Rousseau propõe que cada um se submeta à vontade geral, entendida como a vontade do corpo político voltada para o bem comum, de modo que obedecer à lei seja, no fundo, obedecer a si mesmo.\n\nO conceito de vontade geral é um dos mais debatidos da filosofia política, porque pode ser usado para defender a democracia direta e também formas autoritárias. Vale a leitura para entender os dois usos e para perceber como uma ideia pode ser apropriada em direções opostas.",
+    picks: [
+      ["simples","6555522275","81cv7FpsZoL","Principis",128,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["simples","8572329374","917Aq6lTwnS","Martin Claret",141,"","Tradutor não identificado na ficha. A origem da tradução não foi conferida."],
+      ["bolso","8572839291","718SG3j1BOL","Edipro",128,"","Edição de bolso. Tradutor não identificado na ficha. A origem da tradução não foi conferida."]
+    ]
+  }
+});
+
+/* Aplica EXTRA_OBRAS: texto da obra e edições. Agrupa por editora e páginas,
+   para que cada bloco de edição descreva uma única publicação. */
+OBRAS.forEach(o=>{
+  const x = EXTRA_OBRAS[o.t];
+  if(!x) return;
+  o.sobre = {obra: x.sobre};
+  const grupos = new Map();
+  x.picks.forEach(([f,asin,img,ed,pag,sym,obs])=>{
+    const chave = ed+"|"+pag;
+    if(!grupos.has(chave)) grupos.set(chave, {nome:ed, pag, sym:"", img, obs:[], links:{}});
+    const g = grupos.get(chave);
+    if(sym && !g.sym.includes(sym)) g.sym += (g.sym?" ":"") + sym;
+    if(obs && !g.obs.includes(obs)) g.obs.push(obs);
+    g.links[f] = "https://www.amazon.com.br/dp/"+asin+"?tag=acidadela-20";
+  });
+  o.edicoes = [...grupos.values()].map(g=>({
+    nome: g.nome,
+    sym: g.sym,
+    img: g.img ? "https://m.media-amazon.com/images/I/"+g.img+"._SL1500_.jpg" : "",
+    ed: g.nome+(g.pag?", "+g.pag+" páginas.":"."),
+    sobre: g.obs.join(" "),
+    links: g.links
+  }));
+});
