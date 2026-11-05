@@ -90,7 +90,7 @@ const OBRAS = [
   {t:"O Caminho da Servidão", a:"Friedrich Hayek (1899–1992)", e:"xx", s:"P", d:"2063", esc:"Escola austríaca"},
   {t:"Origens do Totalitarismo", a:"Hannah Arendt (1906–1975)", e:"xx", s:"P", d:"2046", esc:"Totalitarismo"},
   {t:"1984", a:"George Orwell (1903–1950)", e:"xx", s:"PD", d:"2021", esc:"Totalitarismo", img:"https://m.media-amazon.com/images/I/819js3EQwbL._SL1500_.jpg"},
-  {t:"Admirável Mundo Novo", a:"Aldous Huxley (1894–1963)", e:"xx", s:"P", d:"2034", esc:"Totalitarismo"},
+  {t:"Admirável Mundo Novo", a:"Aldous Huxley (1894–1963)", e:"xx", s:"P", d:"2034", esc:"Totalitarismo", img:"https://m.media-amazon.com/images/I/61hOp6UFvCL._SL1500_.jpg"},
   {t:"A Sociedade Aberta e seus Inimigos", a:"Karl Popper (1902–1994)", e:"xx", s:"P", d:"2065", esc:"Liberalismo crítico"},
   {t:"O Ópio dos Intelectuais", a:"Raymond Aron (1905–1983)", e:"xx", s:"P", d:"2054", esc:"Liberalismo crítico"},
   {t:"Casa-Grande & Senzala", a:"Gilberto Freyre (1900–1987)", e:"xx", s:"P", d:"2058", esc:"Pensamento brasileiro"},
