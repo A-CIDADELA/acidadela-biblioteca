@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/obra.html", "destination": "/biblioteca/obra.html" }
+    { "source": "/obra.html", "destination": "/biblioteca/obra.html" },
+    { "source": "/dados.js", "destination": "/biblioteca/dados.js" },
+    { "source": "/resumos.js", "destination": "/biblioteca/resumos.js" },
+    { "source": "/assets/:path*", "destination": "/biblioteca/assets/:path*" }
   ]
 }
